@@ -1,0 +1,9 @@
+<h1>Index Page</h1>
+
+<ul>
+	<% @goals.each do |goal| %>
+		<li><%= "#{goal.title}: #{goal.description}. #{goal.target} #{goal.unit}. Prize is #{goal.prize}!" %></li>
+	<%end%>
+</ul>
+
+<%= link_to "Create a New Goal", "goals/new" %>

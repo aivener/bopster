@@ -1,0 +1,41 @@
+<h1>New Goal Page</h1>
+
+<% if @goal.errors.any? %>
+	<div class="errors">
+		<ul>	
+			<%@goal.errors.full_messages.each do |message| %>
+				<li><%=message%></li>
+			<%end%>
+		</ul>
+	</div>
+<%end%>
+
+<%= form_for(@goal, :url => '/goals') do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<br><br>
+
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+
+	<br><br>
+
+	<%= f.label :target %>
+	<%= f.number_field :target %>
+
+	<br><br>
+
+	<%= f.label :unit %>
+	<%= f.text_field :unit %>
+
+	<br><br>
+
+	<%= f.label :prize %>
+	<%= f.text_field :prize %>
+
+	<br><br>
+
+	<%= f.submit %>
+<% end %>
+

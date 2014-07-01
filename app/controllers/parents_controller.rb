@@ -7,4 +7,4 @@ class ParentsController < ApplicationController
 	def edit #update
 	end
 
-end
+end	
