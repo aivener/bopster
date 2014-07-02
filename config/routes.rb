@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   get 'goals' => 'goals#index'
   get 'goals/new' => 'goals#new'
   post 'goals' => 'goals#create'
+
+  root to: "goals#index"
 
   get 'reports' => 'reports#index'
   get 'reports/new' => 'reports#new'
