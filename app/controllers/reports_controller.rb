@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
 	before_action :authenticate_user!
-	#before_action :authenticate_kid!
+	before_action :authenticate_kid!
 
 	def index
 		@reports = Report.all

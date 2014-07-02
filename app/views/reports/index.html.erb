@@ -1,3 +1,5 @@
+<!-- nothing links to this page yet -->
+
 <h1>Report Index Page</h1>
 
 <ul>
@@ -6,4 +8,8 @@
 	<%end%>
 </ul>
 
-<%= link_to "Create a New Report", "reports/new" %>
+<% if current_user.role == "kid" %>
+	<%= link_to "Create a New Report", "reports/new" %>
+	
+<% end %>
+

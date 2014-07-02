@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
 	before_action :authenticate_user!
+	#before_create :authenticate_parent!
 
 	def index
 		@goals = Goal.all
@@ -22,6 +23,10 @@ class GoalsController < ApplicationController
 	def goal_params
 		params.require(:goal).permit(:title, :description, :target, :unit, :prize, :status, :kid_id, :parent_id)
 	end
+
+	# def before_create
+
+	# end
 
 
 	#THIS NEEDS TO BE FIXED - it populates the kid_name hash so that it is full of the kid's names of that parent so they can pick from a drop down menu that lists the names of their kids (see twitter_on_rails @handles)

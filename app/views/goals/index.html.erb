@@ -10,8 +10,17 @@
 				<%= "Goal is complete!" %>	
 			<% end %>
 			<br>
-		<%= link_to "Make Report", "reports/new?report_goal_id=#{goal.id}" %>
+		<% if current_user.role == "kid" %>
+			<%= link_to "Make Report", "reports/new?report_goal_id=#{goal.id}" %>
+		<% end %>
+		
 	<%end%>
+
+	<% if current_user.role == "parent" %>
+		<%= link_to "Create a New Goal", "goals/new" %>
+	<% end %>
+	
+	<br>
+	<%= link_to "ProfPage", user_path(current_user.id) %>
 </ul>
 
-<%= link_to "Create a New Goal", "goals/new" %>

@@ -1,6 +1,5 @@
 class Goal < ActiveRecord::Base
-	#belongs_to :parent
-	#belongs_to :kid
+	belongs_to :user
 
 	has_many :reports, :dependent => :destroy
 
