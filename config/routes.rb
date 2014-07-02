@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'goals/new' => 'goals#new'
   post 'goals' => 'goals#create'
 
+  get 'reports' => 'reports#index'
+  get 'reports/new' => 'reports#new'
+  post 'reports' => 'reports#create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,9 @@
+<h1>Report Index Page</h1>
+
+<ul>
+	<% @reports.each do |report| %>
+		<li><%= "#{report.amount}." %></li>
+	<%end%>
+</ul>
+
+<%= link_to "Create a New Report", "reports/new" %>
