@@ -1,8 +1,16 @@
-<h1>Goal Index Page/Parent Home Page</h1>
+<h1>Goal Index Page</h1>
 
 <ul>
 	<% @goals.each do |goal| %>
-		<li><%= "#{goal.title}: #{goal.description}. #{goal.target} #{goal.unit}. Prize is #{goal.prize}!" %></li>
+		<li><%= "#{goal.title}: #{goal.description}. #{goal.target} #{goal.unit}. Prize is #{goal.prize}! #{goal.progress} out of #{goal.target}."%>
+			<% if goal.status == 0 %>
+				<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
+				<%= "Goal is #{goal_percent}% complete" %>
+			<% else %>
+				<%= "Goal is complete!" %>	
+			<% end %>
+			<br>
+		<%= link_to "Make Report", "reports/new?report_goal_id=#{goal.id}" %>
 	<%end%>
 </ul>
 

@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+	before_action :authenticate_user!
+	#before_action :authenticate_kid!
 
 	def index
 		@reports = Report.all
@@ -11,7 +13,11 @@ class ReportsController < ApplicationController
 	def create
 		@report = Report.new(report_params)
 		@report.save
-		redirect_to :action => :index
+		redirect_to report_path(@report)
+	end
+
+	def show
+
 	end
 
 	private

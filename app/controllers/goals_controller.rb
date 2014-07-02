@@ -1,4 +1,5 @@
 class GoalsController < ApplicationController
+	before_action :authenticate_user!
 
 	def index
 		@goals = Goal.all
@@ -10,6 +11,8 @@ class GoalsController < ApplicationController
 
 	def create
 		@goal = Goal.new(goal_params)
+		@goal.progress = 0
+		@goal.status = 0
 		@goal.save
 		redirect_to :action => :index
 	end

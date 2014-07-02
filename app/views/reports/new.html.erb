@@ -14,6 +14,8 @@
 	<%= f.label :amount %>
 	<%= f.text_field :amount %>
 
+	<%= f.hidden_field :goal_id, :value => params[:report_goal_id] %>
+
 	<br><br>
 
 	<%= f.submit %>

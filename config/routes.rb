@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  get 'goals' => 'goals#index'
-  get 'goals/new' => 'goals#new'
-  post 'goals' => 'goals#create'
 
-  root to: "goals#index"
+  root "goals#index"
 
-  get 'reports' => 'reports#index'
-  get 'reports/new' => 'reports#new'
-  post 'reports' => 'reports#create'
+  resources :goals, :only => [:index, :new, :create]
+
+  resources :reports, :only => [:index, :new, :create, :show]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
