@@ -28,6 +28,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (2.1.0.20140628)
+      execjs
     bcrypt (3.1.7)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -54,6 +56,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.1)
+    flat-ui-rails (0.0.2)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.1.1)
@@ -138,11 +141,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   better_errors
   binding_of_caller
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise
+  flat-ui-rails
   jbuilder (~> 2.0)
   jquery-rails
   pry

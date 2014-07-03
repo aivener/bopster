@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'bootstrap-sass'
 
+gem 'autoprefixer-rails'
+
+gem 'flat-ui-rails'
+
 gem 'better_errors'
 
 gem 'binding_of_caller'

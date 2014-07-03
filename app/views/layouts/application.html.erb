@@ -1,35 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <title>Bopster</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	
-  <title>Bopster</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-	<p class="notice"><%= notice %></p>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    
+    
+    
+    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-<%= yield %>
 
-  <div class="footer">
-    <% if user_signed_in? %>
-      <%=link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%=link_to 'Sign In', new_user_session_path %>
-    <% end %>
-  </div>
 
-</body>
-</html>
+    <nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+        <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="#">kazoo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-01">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#fakelink">my home</a></li>
+          <li><a href="#fakelink">goals</a></li>
+          <li><a href="#fakelink">health</a></li>
+        </ul>
+        <p class="navbar-text navbar-right">Signed in as <a class="navbar-link" href="#"><%= current_user.name %></a></p>
+
+
+        <form class="navbar-form navbar-right" action="#" role="search">
+          <div class="form-group">
+            <div class="input-group">
+              <input class="form-control flat" id="navbarInput-01" type="search" placeholder="Search">     
+            </div>
+          </div>
+         </form>
+
+        </div><!-- /.navbar-collapse -->
+        </nav><!-- /navbar -->
+        
+
+
+        <div class="container">
+          <%= yield %>
+          
+
+          <div class="footer">
+            
+            <% if user_signed_in? %>
+            <%=link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+            <% else %>
+            <%=link_to 'Sign In', new_user_session_path %>
+            <% end %>
+          </div>
+        </div>
+
+      </body>
+    </html>
