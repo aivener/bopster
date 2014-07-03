@@ -5,7 +5,7 @@
   <%= devise_error_messages! %>
 
 	<div><%= f.label :name %><br />
-  		<%= f.email_field :name, autofocus: true %></div>  
+  		<%= f.text_field :name, autofocus: true %></div>  
 
   	<div><%= f.label :email %><br />
   		<%= f.email_field :email, autofocus: false %></div>
@@ -19,7 +19,9 @@
    	<div><%= f.label :username %><br />
     	<%= f.text_field :username, autocomplete: "off" %></div>
 
-   	<div>Role: <%= f.select :role, [['Parent','parent'],['Kid','kid']], :include_blank => true %></div><br>
+   	<div><%= f.radio_button :role, "parent" %>Parent</div><br>
+
+    <div><%= f.radio_button :role, "kid" %>Kid</div><br>
 
   	<div><%= f.submit "Sign up" %></div>
 

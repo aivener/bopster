@@ -16,32 +16,36 @@
     <p class="alert"><%= alert %></p>
 
 
-
-<<<<<<< HEAD
     <nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
         <span class="sr-only">Toggle navigation</span>
         </button>
-        <a class="navbar-brand" href="#">kazoo</a>
+        <a class="navbar-brand" href="/goals">kazoo</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#fakelink">my home</a></li>
+          <li class="active"><a href="/goals">my home</a></li>
           <li><a href="#fakelink">goals</a></li>
           <li><a href="#fakelink">health</a></li>
         </ul>
-        <p class="navbar-text navbar-right">Signed in as <a class="navbar-link" href="#"><%= current_user.name %></a></p>
+        <p class="navbar-text navbar-right">Signed in as <a class="navbar-link" href="#"></a></p>
 
+      <div class="search_bar">
+        <%= form_tag users_path, :method => 'GET' do  %>
+          <%= text_field_tag 'q', params[:q] %>
+          <%= submit_tag 'SEARCH' %>
+        <% end %>
+      </div> 
 
-        <form class="navbar-form navbar-right" action="#" role="search">
+        <!-- <form class="navbar-form navbar-right" action="#" role="search">
           <div class="form-group">
             <div class="input-group">
               <input class="form-control flat" id="navbarInput-01" type="search" placeholder="Search">     
             </div>
           </div>
          </form>
-
+ -->
         </div><!-- /.navbar-collapse -->
         </nav><!-- /navbar -->
         

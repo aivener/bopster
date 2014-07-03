@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'will_paginate'
+
 gem 'bootstrap-sass'
 
 gem 'autoprefixer-rails'
