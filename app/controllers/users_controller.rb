@@ -14,10 +14,24 @@ class UsersController < ApplicationController
 
     def update
     	@user = User.find(params[:id])
-    	@user.name = params[:user]["name"]
-    	@user.save
+
+        if @user.update(user_params)
+            redirect_to @user
+        else
+            render 'edit'
+        end
+    	# @user.name = params[:user]["name"]
+     #    @user.email = params[:user]["email"]
+    	# @user.save
+
+        #binding.pry
     	
-    	redirect_to '/users/#{params[:id]}'
+    	#redirect_to '/users/#{params[:id]}'
     end
 
+    private
+
+        def user_params
+            params.require(:user).permit(:email, :name, :age, :gender, :parent_id, :bio, :username, :role)
+        end
 end

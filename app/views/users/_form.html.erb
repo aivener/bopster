@@ -1,7 +1,15 @@
-<%= form_for(@user, :method => :get) do |f| %>
+<%= form_for(@user, url: user_path(@user), :method => :put) do |f| %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+
+	<br>
+
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+	
+	<br>
+
   </div>
   <div class="actions">
     <%= f.submit %>
