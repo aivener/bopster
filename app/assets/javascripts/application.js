@@ -16,7 +16,8 @@
 //= require bootstrap-select
 //= require bootstrap-switch
 //= require jquery.tagsinput
-//= require_tree .
+//= require jquery.placeholder
+//= require flatui-radio.js
 
 
 $( document ).ready(function() {
