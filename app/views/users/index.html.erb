@@ -1,5 +1,5 @@
 <h1>user index</h1>
 
 <% @users.each do |user| %>
-	<%= "#{user.name}" %>
+	<%= link_to "#{user.name}: #{user.username}, #{user.parent_id}", user_path(user.id) %><br>
 <% end %>

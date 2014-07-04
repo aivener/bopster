@@ -2,19 +2,24 @@ source 'https://rubygems.org'
 
 gem 'will_paginate'
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass'	
 
 gem 'autoprefixer-rails'
 
 gem 'flat-ui-rails'
 
-gem 'better_errors'
 
 gem 'binding_of_caller'
 
-gem 'pry'
 
 gem 'devise'
+
+group :development do 
+	gem 'jazz_hands'
+	gem 'better_errors'
+	gem 'puma'
+	#gem 'quiet_assets'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
