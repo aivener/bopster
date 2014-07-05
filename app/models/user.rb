@@ -13,6 +13,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 	def self.filter(query)
-		query.blank? ? User.all : User.where("name LIKE '%#{query}%'")
+		query.blank? ? User.all : User.where("name || username LIKE '%#{query}%'")
 	end
 end

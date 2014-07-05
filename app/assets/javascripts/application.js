@@ -24,6 +24,10 @@ $( document ).ready(function() {
   console.log("Hello!");
 });
 
+$(document).ready(function () {
+    $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+});
+
 // Some general UI pack related JS
 // Extend JS String with repeat method
 String.prototype.repeat = function(num) {

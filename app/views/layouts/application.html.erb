@@ -21,37 +21,52 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
         <span class="sr-only">Toggle navigation</span>
         </button>
-        <a class="navbar-brand" href="/goals">kazoo</a>
+        <%= link_to 'kazoo', root_path, class: "navbar-brand"%>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/goals">my home</a></li>
-          <li><a href="#fakelink">goals</a></li>
-          <li><a href="#fakelink">health</a></li>
+          <li><%= link_to 'my home', users_path %></li>
+          <li><%= link_to 'goals', goals_path %></li>
+          <li><a href="#">settings</a></li>
         </ul>
-        <p class="navbar-text navbar-right">Signed in as <a class="navbar-link" href="#"></a></p>
+
+        <div class = "navbar-right">
+          <% if user_signed_in? %>
+            <button class="btn btn-default navbar-btn btn-xs" type="button">
+              <%=link_to 'Sign Out', destroy_user_session_path, :method => :delete, class: "navbar-link"%>
+            </button>
+          <% else %>
+            <button class="btn btn-default navbar-btn btn-xs" type="button">
+              <%=link_to 'Sign In', new_user_session_path, class: "navbar-link" %>
+            </button>
+          <% end %>
+        </div>
 
 
-
-        <form class="navbar-form navbar-right" action="#" role="search">
-          <div class="form-group">
-            <div class="input-group">
-              <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
-              <span class="input-group-btn">
-                <button type="submit" class="btn"><span class="fui-search"></span></button>
-              </span>            
-            </div>
-          </div>               
-        </form>
-
-
-
-      <form class="search_bar" role="search" action="#">
-        <%= form_tag users_path, :method => 'GET' do  %>
-          <%= text_field_tag 'q', params[:q] %>
-          <%= submit_tag 'SEARCH' %>
+        <% if current_user %>
+          <p class="navbar-text navbar-right">Signed in as 
+            <%= link_to current_user.name, "/users/#{current_user.id}", class: "navbar-link" %>
+          </p>
         <% end %>
+
+        
+
+
+
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <div class="input-group"  >
+            <%= form_tag users_path, :method => 'GET' do  %>
+              <%= text_field_tag 'q', params[:q], class: "form-control", id: "navbarInput-01", type: "search", placeholder: "Search" %>
+              <span class="input-group-btn">
+                <button type="submit" class="btn"><span class='fui-search'></span></button>
+              </span>
+            <% end %>
+          </div>
+        </div>
       </form>
+
+     
 
     
         </div><!-- /.navbar-collapse -->
@@ -66,11 +81,7 @@
 
           <div class="footer">
             
-            <% if user_signed_in? %>
-            <%=link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
-            <% else %>
-            <%=link_to 'Sign In', new_user_session_path %>
-            <% end %>
+            
           </div>
         </div>
 

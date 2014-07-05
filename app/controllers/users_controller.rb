@@ -30,6 +30,11 @@ class UsersController < ApplicationController
     	#redirect_to '/users/#{params[:id]}'
     end
 
+    def add_kid
+        @user.id = current_user.id
+        @user.save
+    end
+
     private
 
         def user_params
