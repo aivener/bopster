@@ -17,7 +17,7 @@
     	@user = User.find(params[:id])
 
         if @user.update(user_params)
-            redirect_to "users/show/#{params[:id]}"
+            redirect_to "users/show/#{params[:id]}" 
         else
             render 'edit'
         end
