@@ -19,9 +19,20 @@
    	<div><%= f.label :username %><br />
     	<%= f.text_field :username, autocomplete: "off" %></div>
 
-   	<div><%= f.radio_button :role, "parent" %>Parent</div><br>
 
-    <div><%= f.radio_button :role, "kid" %>Kid</div><br>
+    <label class="radio">
+      <input id="user_role_parent" type="radio" name="user[role]" value="parent" data-toggle="radio" checked>
+      Parent
+    </label>
+
+    <label class="radio">
+      <input id="user_role_kid" type="radio" name="user[role]" value="kid" data-toggle="radio">
+      Kid
+    </label>
+
+   	<!-- <div><%= f.radio_button :role, "parent" %>Parent</div><br>
+
+    <div><%= f.radio_button :role, "kid" %>Kid</div><br> -->
 
   	<div><%= f.submit "Sign up" %></div>
 

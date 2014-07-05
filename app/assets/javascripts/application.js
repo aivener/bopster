@@ -16,11 +16,16 @@
 //= require bootstrap-select
 //= require bootstrap-switch
 //= require jquery.tagsinput
-//= require_tree .
+//= require jquery.placeholder
+//= require flatui-radio.js
 
 
 $( document ).ready(function() {
   console.log("Hello!");
+});
+
+$(document).ready(function () {
+    $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
 });
 
 // Some general UI pack related JS

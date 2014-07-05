@@ -15,7 +15,8 @@ gem 'binding_of_caller'
 gem 'devise'
 
 group :development do 
-	gem 'jazz_hands'
+
+	# gem 'jazz_hands'
 	gem 'better_errors'
 	gem 'puma'
 	#gem 'quiet_assets'

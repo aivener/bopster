@@ -2,6 +2,18 @@
 @import "bootstrap";
 @import "flat-ui";
 
+.navbar-inverse .navbar-link {
+  color: #fff;
+}
+
+.navbar-right {
+	margin-right: 30px;
+}
+
+#navbarInput-01 {
+	border-radius: 7px;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
