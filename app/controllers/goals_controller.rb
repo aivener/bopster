@@ -14,6 +14,7 @@ class GoalsController < ApplicationController
 		@goal = Goal.new(goal_params)
 		@goal.progress = 0
 		@goal.status = 0
+		@goal.parent_id = current_user.id
 		@goal.save
 		redirect_to :action => :index
 	end
