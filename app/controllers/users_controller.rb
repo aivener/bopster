@@ -15,12 +15,7 @@
 
     def update
     	@user = User.find(params[:id])
-
-        if @user.update(user_params)
-            redirect_to "users/show/#{params[:id]}" 
-        else
-            render 'edit'
-        end
+        redirect_to users_path
     end
 
     def add_kid

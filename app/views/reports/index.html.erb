@@ -1,15 +1,12 @@
-<!-- nothing links to this page yet -->
-
 <h1>Report Index Page</h1>
 
 <ul>
 	<% @reports.each do |report| %>
-		<li><%= "#{report.amount}" %></li>
-	<%end%>
+		<% if report.status == 0 && current_user.role == "parent" %>
+			<%= "REPORT: #{report.amount}" %>
+			<%= link_to "Approve", report_path(report.id), method: "put" %>
+		<% end %>
+	<% end %>
 </ul>
 
-<% if current_user.role == "kid" %>
-	<%= link_to "Create a New Report", "reports/new" %>
-	
-<% end %>
 
