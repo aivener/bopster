@@ -5,8 +5,7 @@
 <%= "Parent Id: #{@user.parent_id}" %><br><br>
 
 <% if current_user.role == "parent" && @user.role == "kid" %>
-	<%= link_to "Add Kid", "/users/#{params[:id]}", controller: :user, action: :add_kid, method: :put %> 
-<!-- 	<%= link_to "Add Kid", :controller => "users", :action => "update", :method => :put, :user => {:parent_id => current_user.id} %> -->
+	<%= link_to "Add Kid", "/users/#{params[:id]}/add_kid" %> 
 <% end %>
 
 <br><br>

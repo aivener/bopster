@@ -32,8 +32,8 @@
 
     def add_kid
         @user = User.find(params[:id])
-        @user.update_attributes(:parent_id => current_user.id)
-        # redirect_to '/users/#{params[:id]}'
+        @user.parent_id = current_user.id
+        redirect_to "/users"
     end
 
     private
