@@ -12,6 +12,7 @@
 
 #navbarInput-01 {
 	border-radius: 7px;
+	margin: 0;
 }
 
 .footer {
@@ -39,16 +40,27 @@
 
 .form-control {
 	width: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 .avatar {
 	float:left;
-	padding-right: 30px;
-	border-radius: 7px;
+	margin-right: 30px;
+	border-radius: 10px;
+	
 }
 
 .col-md-3 {
 	width: 140px;
+}
+
+.login-form {
+	width: 400px;
+}
+
+.login-form .login-field {
+	width: 350px;
 }
 
 /*
