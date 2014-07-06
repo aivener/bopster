@@ -3,3 +3,5 @@
 <% @users.each do |user| %>
 	<%= link_to "#{user.name}: #{user.username}, #{user.parent_id}", user_path(user.id) %><br>
 <% end %>
+
+<%= will_paginate @users %>
