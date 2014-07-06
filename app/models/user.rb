@@ -2,11 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  has_many :goals, :foreign_key => :kid_id
-
-  has_many :kids, class_name: "User",
-                          foreign_key: "kid_id"
- 
+  has_many :goals, foreign_key: "kid_id"
+  
+  has_many :kids, class_name: "User", foreign_key: "parent_id"
   belongs_to :parent, class_name: "User"
 
   after_create :send_welcome_email

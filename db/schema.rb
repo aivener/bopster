@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702102702) do
+ActiveRecord::Schema.define(version: 20140706153007) do
 
   create_table "friendships", force: true do |t|
     t.integer  "requester_id"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20140702102702) do
     t.string   "title"
     t.string   "description"
     t.integer  "kid_id"
-    t.integer  "parent_id"
     t.integer  "target"
     t.string   "unit"
     t.integer  "progress"
