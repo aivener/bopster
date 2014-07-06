@@ -19,7 +19,7 @@
    height: 53px;  
    position: fixed; 
    bottom: 0px; 
-   left: 0px; 
+   left: 0px;
 }
 
 .footer-text {
@@ -31,6 +31,24 @@
 .input-group-btn > .btn {
 	position: absolute;
 	left: -15px;
+}
+
+.btn-embossed {
+	margin-top: 15px;
+}
+
+.form-control {
+	width: auto;
+}
+
+.avatar {
+	float:left;
+	padding-right: 30px;
+	border-radius: 7px;
+}
+
+.col-md-3 {
+	width: 140px;
 }
 
 /*
