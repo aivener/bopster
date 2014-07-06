@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :goals, :only => [:index, :new, :create]
 
-  resources :reports, :only => [:index, :new, :create, :show]
+  resources :reports, :only => [:index, :new, :create, :show, :update]
 
   resources :users, :only => [:show, :edit, :update, :index]
 

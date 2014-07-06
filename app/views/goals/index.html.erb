@@ -6,8 +6,8 @@
 			<% if goal.kid_id == current_user.id %>
 				<li><%= "#{goal.title}: #{goal.description}. #{goal.target} #{goal.unit}. Prize is #{goal.prize}! #{goal.progress} out of #{goal.target}."%>
 					<% if goal.status == 0 %>
-						<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
-						<%= "Goal is #{goal_percent}% complete" %>
+							<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
+							<%= "Goal is #{goal_percent}% complete" %>
 					<% else %>
 						<%= "Goal is complete!" %>	
 					<% end %>

@@ -1,6 +1,6 @@
 class Report < ActiveRecord::Base
 	belongs_to :goal
-	after_create :goal_update #this will need to change when parent has to approve it
+	after_update :goal_update #this will need to change when parent has to approve it
 
 	belongs_to :kid, class_name: "User"
 

@@ -2,8 +2,13 @@
 
 <br>
 
-<%= "You just submitted #{Report.last.amount} toward your goal!" %>
+<% if current_user.role == "kid" %>
+	<%= "You just submitted #{Report.last.amount} toward your goal!" %>
+<% else %>
+	<%= "Thanks for approving the progress!" %>
+<% end %>
+
 
 <br><br>
 
-<%= link_to 'Back to Goals Page', goals_path %>
+<%= link_to 'Back to Home', root_path %>
