@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   resources :reports, :only => [:index, :new, :create, :show]
 
-  resources :users, :only => [:show, :edit, :update, :index, :put, :post, :get]
+  resources :users, :only => [:show, :edit, :update, :index]
+
+
+  get '/users/:id/add_kid' => 'users#add_kid'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

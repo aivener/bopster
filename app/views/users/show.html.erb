@@ -1,14 +1,16 @@
 <h1>USER PAGE</h1>
 
 <%= @user.name %><br>
-<%= @user.email %>
+<%= @user.email %><br>
+<%= "Parent Id: #{@user.parent_id}" %><br><br>
 
 <% if current_user.role == "parent" && @user.role == "kid" %>
-	<%= link_to "Add as Your Kid", '/users', {:parent_id => current_user.id, :action => "add_kid"} %>
+	<%= link_to "Add Kid", "/users/#{params[:id]}/add_kid" %> 
 <% end %>
-
 
 <br><br>
 
-<%= link_to "Edit This User", edit_user_path %><br>
+<% if (current_user.name == @user.name) %>
+	<%= link_to "Edit This User", edit_user_path %><br>
+<% end %>
 <%= link_to "Back to Goals Page", goals_path %>
