@@ -21,18 +21,11 @@
         else
             render 'edit'
         end
-    	# @user.name = params[:user]["name"]
-     #    @user.email = params[:user]["email"]
-    	# @user.save
-
-        #binding.pry
-    	
-    	#redirect_to '/users/#{params[:id]}'
     end
 
     def add_kid
         @user = User.find(params[:id])
-        @user.parent_id = current_user.id
+        @user.update_attributes(parent_id: current_user.id)
         redirect_to "/users"
     end
 
