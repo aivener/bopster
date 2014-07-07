@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :kids, class_name: "User", foreign_key: "parent_id"
   belongs_to :parent, class_name: "User"
 
+  has_many :friendships
+  has_many :friends, :through => :friendships
   after_create :send_welcome_email
 
   devise :database_authenticatable, :registerable,

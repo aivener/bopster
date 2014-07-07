@@ -5,8 +5,12 @@
 <h4><%= @user.role.capitalize %></h4>
 
 <div class="container">
-	<% if current_user.role == "parent" && @user.role == "kid" %>
+	<% if current_user.role == "parent" && @user.role == "kid" && @user.parent_id != current_user.id %>
 		<%= link_to "Add Kid", "/users/#{params[:id]}/add_kid" %> 
+	<% end %>
+
+	<% if @user.parent_id == current_user.id %>
+		<%= "This is your kid!" %>
 	<% end %>
 
 	<p>Username:  <b><%= @user.username %></b></p>
@@ -22,12 +26,12 @@
 
 	<p>Email:  <%= link_to "#{@user.email}", "mailto:#{@user.email}" %></p><br>
 	
-	<!-- <%= "Parent Id: #{@user.parent_id}" %><br><br> -->
-	
-	
-	
 	<br>
 	
+	<% if current_user.role == @user.role %>
+		<%= link_to "Add as Friend", "/friendships?receiver_id=#{params[:id]}", :method => "post" %>
+	<% end %>
+
 	<% if (current_user.name == @user.name) %>
 		<%= link_to "Edit Profile", edit_user_path, :class => "btn btn-embossed btn-primary" %><br>
 	<% end %>

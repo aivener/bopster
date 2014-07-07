@@ -10,8 +10,12 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:show, :edit, :update, :index]
 
+  resources :friendships, :only => [:create, :index, :show]
+
 
   get '/users/:id/add_kid' => 'users#add_kid'
+
+  get '/friendships/:friendship_id/accept_friend' => 'friendships#accept_friend'
 
 
 
