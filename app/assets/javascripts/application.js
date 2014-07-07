@@ -18,7 +18,9 @@
 //= require jquery.tagsinput
 //= require jquery.placeholder
 //= require flatui-radio.js
+//= require flatui-checkbox.js
 
+$('select').selectpicker();
 
 $( document ).ready(function() {
   console.log("Hello!");
@@ -27,6 +29,8 @@ $( document ).ready(function() {
 $(document).ready(function () {
     $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
 });
+
+$("select").selectpicker({style: 'btn-hg btn-primary', menuStyle: 'dropdown-inverse'});
 
 // Some general UI pack related JS
 // Extend JS String with repeat method

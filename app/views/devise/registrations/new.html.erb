@@ -4,21 +4,6 @@
   
   <%= devise_error_messages! %>
 
-	<div><%= f.label :name %><br />
-  		<%= f.text_field :name, autofocus: true %></div>  
-
-  	<div><%= f.label :email %><br />
-  		<%= f.email_field :email, autofocus: false %></div>
-
-  	<div><%= f.label :password %><br />
-    	<%= f.password_field :password, autocomplete: "off" %></div>
-
-  	<div><%= f.label :password_confirmation %><br />
-    	<%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-   	<div><%= f.label :username %><br />
-    	<%= f.text_field :username, autocomplete: "off" %></div>
-
 
     <label class="radio">
       <input id="user_role_parent" type="radio" name="user[role]" value="parent" data-toggle="radio" checked>
@@ -30,12 +15,29 @@
       Kid
     </label>
 
-   	<!-- <div><%= f.radio_button :role, "parent" %>Parent</div><br>
+    <!-- <div><%= f.radio_button :role, "parent" %>Parent</div><br>
 
     <div><%= f.radio_button :role, "kid" %>Kid</div><br> -->
 
-  	<div><%= f.submit "Sign up" %></div>
+  		<%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Name" %>
+
+      <%= f.text_field :username, autocomplete: "off", class: "form-control", placeholder: "Username" %> 
+
+  		<%= f.email_field :email, autofocus: false, class: "form-control", placeholder: "Email" %>
+
+    	<%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+
+    	<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm password" %>
+
+      <%= f.text_field :age,  class: "form-control", placeholder: "Age" %>
+
+      <%= f.text_field :gender,  class: "form-control", placeholder: "Gender" %>
+
+
+
+  	<div><%= f.submit "Sign up!", class: "btn btn-primary btn-embossed" %></div>
 
 <% end %>
+<br><br>
 
 <%= render "devise/shared/links" %>

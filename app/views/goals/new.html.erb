@@ -11,34 +11,36 @@
 <%end%>
 
 <%= form_for(@goal, :url => '/goals') do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-
-	<br><br>
-
-	<%= f.label :description %>
-	<%= f.text_field :description %>
-
-	<br><br>
-
-	<%= f.label :target %>
-	<%= f.number_field :target %>
-
-	<br><br>
-
-	<%= f.label :unit %>
-	<%= f.text_field :unit %>
-
-	<br><br>
-
-	<%= f.label :prize %>
-	<%= f.text_field :prize %>
-
-	<br><br>
-
-	<%= f.label :kid_id %>
+	
 	<%= f.select :kid_id, @kid_names %> 
 
-	<%= f.submit %>
+
+<script>
+
+$("select").selectpicker({style: 'btn btn-primary', menuStyle: 'dropdown-inverse'});
+
+</script>
+
+	<%= f.text_field :title, class: "form-control", placeholder: "Title" %>
+
+
+	
+	<%= f.text_field :description, class: "form-control", placeholder: "Description" %>
+
+
+
+	
+	<%= f.number_field :target, class: "form-control", placeholder: "Target amount" %>
+
+
+	
+	<%= f.text_field :unit, class: "form-control", placeholder: "Unit" %>
+
+
+	
+	<%= f.text_field :prize, class: "form-control", placeholder: "Prize" %>
+
+
+	<%= f.submit class: "btn btn-primary btn-embossed" %>
 <% end %>
 
