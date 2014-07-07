@@ -33,9 +33,14 @@ $("select").selectpicker({style: 'btn btn-primary', menuStyle: 'dropdown-inverse
 	<%= f.number_field :target, class: "form-control", placeholder: "Target amount" %>
 
 
-	
-	<%= f.text_field :unit, class: "form-control", placeholder: "Unit" %>
+	<%= f.select :unit, options_for_select(["minutes", "hours", "days", "times"], :id => "unit-select") %>
+<script>
 
+$("select").selectpicker({style: 'btn btn-primary', menuStyle: 'dropdown-inverse'});
+
+</script>
+
+	
 
 	
 	<%= f.text_field :prize, class: "form-control", placeholder: "Prize" %>
