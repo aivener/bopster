@@ -1,6 +1,6 @@
-<h1>Goal Index Page</h1>
+<h1>Goals</h1>
 
-<ul>
+<!-- <ul>
 	<% @goals.each do |goal| %>
 		<% if current_user.role == "kid" %>
 			<% if goal.kid_id == current_user.id %>
@@ -30,11 +30,66 @@
 		<% end %>
 	<%end%>
 
-	<% if current_user.role == "parent" %>
-		<%= link_to "Create a New Goal", "goals/new" %>
-	<% end %>
 	
-	<br>
+	
+	<br> -->
 
 </ul>
+
+<% collapse_count = 1 %>
+<% @goals.each do |goal| %>
+	<div class="panel-group" id="accordion">
+	  <div class="panel panel-default">
+	    <div class="panel-heading">
+	      <h4 class="panel-title">
+	        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+	        
+	          <% if current_user.role == "kid" %>
+				<% if goal.kid_id == current_user.id %>
+	          		<%= "#{goal.title}"%>
+	          		<button type="submit" class="btn btn-primary btn-embossed btn-xs"><span class="fui-plus"></span></button>
+	          	<% end %>
+	          <% elsif current_user.role == "parent" %>
+				<% current_user.kids.pluck(:id).each do |id| %>
+					<% if goal.kid_id == id %>	
+						<%= "#{User.find(goal.kid_id).name}: #{goal.title}"%>
+					<% end %>
+				<% end %>
+			<% end %>
+			
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="collapseOne" class="panel-collapse collapse in">
+	      <div class="panel-body">
+	        <% if goal.status == 0 %>
+				<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
+				<%= "Goal is #{goal_percent}% complete! #{goal.progress} out of #{goal.target} #{goal.unit} done." %>
+				<div class="progress">
+					<div class="progress-bar" style="width: <%= goal_percent %>%;"></div>
+				</div>
+				<%= "Description: #{goal.description}" %><br>
+				<b><%= "Prize is #{goal.prize}!" %></b><br>
+				<% if current_user.role == "kid" %>
+					<%= link_to "Make Report", "reports/new?report_goal_id=#{goal.id}", class: "btn btn-primary btn-embossed" %>
+				<% else %>
+					<span class="miniwords"><%= link_to "#{User.find(goal.kid_id).name}'s profile", "/users/#{goal.kid_id}" %></span>
+				<% end %>
+			<% else %>
+				<%= "Goal is complete!" %>
+			<% end %>
+	      </div>
+	    </div>
+	  </div> 
+	</div>
+	<% collapse_count += 1 %>
+<% end %>
+
+<% if current_user.role == "parent" %>
+		<%= link_to "Create a New Goal", "goals/new" , :class => "btn btn-primary btn-embossed"%>
+<% end %>
+
+
+                
+             
 
