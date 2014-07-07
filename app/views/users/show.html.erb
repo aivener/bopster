@@ -29,7 +29,9 @@
 	<br>
 	
 	<% if current_user.role == @user.role %>
-		<%= link_to "Add as Friend", "/friendships?receiver_id=#{params[:id]}", :method => "post" %>
+		<% if @user.friendships == current_user.id || @user.friendships.requester_id == current_user.id %>		
+			<%= link_to "Add as Friend", "/friendships?receiver_id=#{params[:id]}", :method => "post" %>
+		<% end %>
 	<% end %>
 
 	<% if (current_user.name == @user.name) %>
