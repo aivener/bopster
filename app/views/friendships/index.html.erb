@@ -1,11 +1,14 @@
 <h1>Your Friendships</h1>
 
 <% @friendships.each do |friendship| %>
-  <%= "Your friendship with #{User.find(friendship.receiver_id).name} is #{friendship.status}." %><br>
+  <%= "Friendship between #{User.find(friendship.receiver_id).name} and #{User.find(friendship.requester_id).name} is #{friendship.status}." %><br>
 <% end %>
 
 <% @friendships.each do |friendship| %>
-	<% if friendship.receiver_id == current_user.id && friendship.status == "Pending" %>
-		<%= link_to "Accept Friend Request", "/friendships/#{friendship.id}/accept_friend" %>
+
+	<% if friendship.receiver_id == current_user.id || friendship.requester_id == current_user.id %>
+		<% if friendship.receiver_id == current_user.id && friendship.status == "Pending" %>
+			<%= link_to "Accept Friend Request", "/friendships/#{friendship.id}/accept_friend" %>
+		<% end %>
 	<% end %>
 <% end %>

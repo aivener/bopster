@@ -3,22 +3,17 @@
 <img src="http://placekitten.com/200/200" class="avatar">
 
 
-<% if current_user.role == "parent" && @user.role == "kid" && @user.parent_id = nil %>
-	<%= link_to "Add Kid", "/users/#{params[:id]}/add_kid", class: "btn btn-primary btn-embossed" %> 
-<% elsif current_user.id == @user.parent_id %>
-	<h4>Your kid</h4>
-<% else %>
-	<h4><%= @user.role.capitalize %></h4>
+<% if current_user.role == "parent" && @user.role == "kid" %>
+	<% if @user.parent_id != current_user.id %>
+		<%= link_to "Add Kid", "/users/#{params[:id]}/add_kid", class: "btn btn-primary btn-embossed" %> 
+	<% elsif current_user.id == @user.parent_id %>
+		<h4>Your kid</h4>
+	<% else %>
+		<h4><%= @user.role.capitalize %></h4>
+	<% end %>
 <% end %>
 
 <div class="container">
-	<% if current_user.role == "parent" && @user.role == "kid" && @user.parent_id != current_user.id %>
-		<%= link_to "Add Kid", "/users/#{params[:id]}/add_kid" %> 
-	<% end %>
-
-	<% if @user.parent_id == current_user.id %>
-		<%= "This is your kid!" %>
-	<% end %>
 
 	<p>Username:  <b><%= @user.username %></b></p>
 	<p>Neighborhood: </p>
@@ -35,10 +30,8 @@
 	
 	<br>
 	
-	<% if current_user.role == @user.role %>
-		<% if @user.friendships == current_user.id || @user.friendships.requester_id == current_user.id %>		
+	<% if @user.id != current_user.id && @user.role == current_user.role %>	
 			<%= link_to "Add as Friend", "/friendships?receiver_id=#{params[:id]}", :method => "post" %>
-		<% end %>
 	<% end %>
 
 	<% if (current_user.name == @user.name) %>

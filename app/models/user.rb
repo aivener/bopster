@@ -7,8 +7,16 @@ class User < ActiveRecord::Base
   has_many :kids, class_name: "User", foreign_key: "parent_id"
   belongs_to :parent, class_name: "User"
 
-  has_many :friendships
-  has_many :friends, :through => :friendships
+  has_many :received_friendships, foreign_key: "receiver_id", :class_name => "Friendship"
+
+  has_many :received_friends, :through => :received_friendships
+
+  has_many :requested_friendships, foreign_key: "requester_id", :class_name => "Friendship"
+
+  has_many :requested_friends, :through => :requested_friendships
+
+  #has_many :friends, :through => :friendships
+
   after_create :send_welcome_email
 
   devise :database_authenticatable, :registerable,
@@ -24,4 +32,7 @@ class User < ActiveRecord::Base
     UserMailer.welcome_email(self).deliver
   end
 
+  def friendships
+
+  end
 end
