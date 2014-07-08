@@ -1,5 +1,31 @@
 <h1>Notifications</h1>
 
-<% @report_notifications.each do |notification| %>
-	<%= notification.amount %><br>
+<% if current_user.role == "parent" %>
+	<h2>Report Notifications</h2>
+
+	<% @report_notifications.each do |notification| %>
+		<% if User.find(Goal.find(notification.goal_id).kid_id).parent_id == current_user.id %>
+			<%= notification.amount %> <%= Goal.find(notification.goal_id).title %><%= link_to "Approve", report_path(notification.id), method: "put" %><br>
+		<% end %>
+	<% end %>
 <% end %>
+
+<h2>Friend Requests</h2>
+
+<% @friend_request_notifications.each do |notification| %>
+	
+<% end %>
+
+
+<h2>Prizes Won</h2>
+
+<% @prizes_notifications.each do |notification| %>
+	<% if User.find(notification.kid_id).parent_id == current_user.id %>
+		<%= "#{User.find(notification.kid_id).name} has completed #{notification.title}." %>
+	<% end %>
+<% end %>
+
+<h2>New Goal</h2>
+
+
+

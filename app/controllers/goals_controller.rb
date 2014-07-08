@@ -20,6 +20,7 @@ class GoalsController < ApplicationController
 		@goal = Goal.new(goal_params)
 		@goal.progress = 0
 		@goal.status = 0
+		@goal.prize_status = -1
 		@goal.save
 		redirect_to :action => :index
 	end
@@ -29,6 +30,10 @@ class GoalsController < ApplicationController
 		@goal.update!(goal_params)
 
 		redirect_to goals_path
+	end
+
+	def destroy
+		@goal.delete
 	end
 
 	private
