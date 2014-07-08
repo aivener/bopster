@@ -1,40 +1,8 @@
 <h1>Goals</h1>
 
-<!-- <ul>
-	<% @goals.each do |goal| %>
-		<% if current_user.role == "kid" %>
-			<% if goal.kid_id == current_user.id %>
-				<li><%= "#{goal.title}: #{goal.description}. #{goal.target} #{goal.unit}. Prize is #{goal.prize}! #{goal.progress} out of #{goal.target}."%>
-					<% if goal.status == 0 %>
-							<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
-							<%= "Goal is #{goal_percent}% complete" %>
-					<% else %>
-						<%= "Goal is complete!" %>	
-					<% end %>
-					<br>
-					<%= link_to "Make Report", "reports/new?report_goal_id=#{goal.id}" %></li>
-			<% end %>
-		<% elsif current_user.role == "parent" %>
-			<% current_user.kids.pluck(:id).each do |id| %>
-				<% if goal.kid_id == id %>	
-					<li><%= "#{goal.title}: #{goal.description}. #{goal.target} #{goal.unit}. Prize is #{goal.prize}! #{goal.progress} out of #{goal.target}."%>
-						<% if goal.status == 0 %>
-							<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
-							<%= "Goal is #{goal_percent}% complete" %>
-						<% else %>
-							<%= "Goal is complete!" %>	
-						<% end %></li>
-						<br>
-				<% end %>		
-			<% end %>
-		<% end %>
-	<%end%>
-
-	
-	
-	<br> -->
-
-</ul>
+<% if current_user.role == "parent" %>
+		<%= link_to "Create a New Goal", "goals/new" , :class => "btn btn-primary btn-embossed"%>
+<% end %>
 
 <% collapse_count = 1 %>
 <% @goals.each do |goal| %>
@@ -46,13 +14,15 @@
 	        
 	          <% if current_user.role == "kid" %>
 				<% if goal.kid_id == current_user.id %>
-	          		<%= "#{goal.title}"%>
-	          		<button type="submit" class="btn btn-primary btn-embossed btn-xs"><span class="fui-plus"></span></button>
+	          		<span style="font-size: 25px; font-weight: bold;"><%= "#{goal.title}"%></span>	          		
+	          		<%= link_to "reports/new?report_goal_id=#{goal.id}" do %>
+						<button type="button" class="btn btn-primary btn-embossed btn-xs" id="btn-add"><span class="fui-plus"></span></button>
+	          		<% end %>
 	          	<% end %>
 	          <% elsif current_user.role == "parent" %>
 				<% current_user.kids.pluck(:id).each do |id| %>
 					<% if goal.kid_id == id %>	
-						<%= "#{User.find(goal.kid_id).name}: #{goal.title}"%>
+						<span style="font-size: 25px; font-weight: bold;"><%= "#{goal.title}  " %>   </span><%= "- #{User.find(goal.kid_id).name}"%>
 					<% end %>
 				<% end %>
 			<% end %>
@@ -64,7 +34,7 @@
 	      <div class="panel-body">
 	        <% if goal.status == 0 %>
 				<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
-				<%= "Goal is #{goal_percent}% complete! #{goal.progress} out of #{goal.target} #{goal.unit} done." %>
+				<%= "Goal is #{goal_percent}% complete! #{goal.progress} out of #{goal.target} #{goal.unit} done." %><br><br>
 				<div class="progress">
 					<div class="progress-bar" style="width: <%= goal_percent %>%;"></div>
 				</div>
@@ -85,9 +55,7 @@
 	<% collapse_count += 1 %>
 <% end %>
 
-<% if current_user.role == "parent" %>
-		<%= link_to "Create a New Goal", "goals/new" , :class => "btn btn-primary btn-embossed"%>
-<% end %>
+
 
 
                 
