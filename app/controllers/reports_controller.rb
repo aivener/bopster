@@ -14,7 +14,7 @@ class ReportsController < ApplicationController
 		@report = Report.new(report_params)
 		@report.status = 0
 		@report.save
-		redirect_to report_path(@report)
+		redirect_to reports_path(@report)
 	end
 
 	def show
