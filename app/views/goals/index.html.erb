@@ -1,4 +1,4 @@
-<h1>Goals</h1>
+<h2>Goals</h2>
 
 <% if current_user.role == "parent" %>
 		<%= link_to "Create a New Goal", "goals/new" , :class => "btn btn-primary btn-embossed"%>
@@ -23,11 +23,11 @@
 				        </a>
 				     </h4>
 				</div>
-	    		<div id= <%= "collapse#{collapse_count}" %> class="panel-collapse collapse in">
+	    		<div id= <%= "collapse#{collapse_count}" %> class="panel-collapse collapse">
 			      <div class="panel-body">
 			        <% if goal.status == 0 %>
 						<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
-						<%= "Goal is #{goal_percent}% complete! #{goal.progress} out of #{goal.target} #{goal.unit} done." %><br><br>
+						<%= "Goal is #{goal_percent}% complete!"%> <em><%= "#{goal.progress} out of #{goal.target} #{goal.unit} done." %></em><br><br>
 						<div class="progress">
 							<div class="progress-bar" style="width: <%= goal_percent %>%;"></div>
 						</div>
@@ -50,15 +50,15 @@
 				    <div class="panel-heading">
 				      <h4 class="panel-title">
 				        <a data-toggle="collapse" data-parent="#accordion" href= <%= "#collapse#{collapse_count}" %> >			        	
-							<span style="font-size: 25px; font-weight: bold;"><%= "#{goal.title}" %></span><%= "- #{User.find(goal.kid_id).name}"%>					
+							<span style="font-size: 25px; font-weight: bold;"><%= "#{goal.title}  " %></span><em><%= "- #{User.find(goal.kid_id).name}"%></em>				
 				        </a>
 				      </h4>
 				    </div>
-				    <div id= <%= "collapse#{collapse_count}" %> class="panel-collapse collapse in">
+				    <div id= <%= "collapse#{collapse_count}" %> class="panel-collapse collapse">
 				      <div class="panel-body">
 				        <% if goal.status == 0 %>
 							<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
-							<%= "Goal is #{goal_percent}% complete! #{goal.progress} out of #{goal.target} #{goal.unit} done." %><br><br>
+							<%= "Goal is #{goal_percent}% complete!"%> <em><%= "#{goal.progress} out of #{goal.target} #{goal.unit} done." %></em><br><br>
 							<div class="progress">
 								<div class="progress-bar" style="width: <%= goal_percent %>%;"></div>
 							</div>
