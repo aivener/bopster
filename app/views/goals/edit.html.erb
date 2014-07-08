@@ -1,0 +1,41 @@
+<h1>Edit Goal</h1>	
+
+<%= form_for(@goal, :url => goal_path(@goal), :method => :put) do |f| %>
+	
+	<%= f.select :kid_id, @kid_names %> 
+
+
+<script>
+
+$("select").selectpicker({style: 'btn btn-primary', menuStyle: 'dropdown-inverse'});
+
+</script>
+
+	<%= f.text_field :title, class: "form-control", placeholder: "Title" %>
+
+
+	
+	<%= f.text_field :description, class: "form-control", placeholder: "Description" %>
+
+
+
+	
+	<%= f.number_field :target, class: "form-control", placeholder: "Target amount" %>
+
+
+	<%= f.select :unit, options_for_select(["minutes", "hours", "days", "times"], :id => "unit-select") %>
+<script>
+
+$("select").selectpicker({style: 'btn btn-primary', menuStyle: 'dropdown-inverse'});
+
+</script>
+
+	
+
+	
+	<%= f.text_field :prize, class: "form-control", placeholder: "Prize" %>
+
+
+	<%= f.submit class: "btn btn-primary btn-embossed" %>
+
+<% end %>

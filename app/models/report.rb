@@ -14,4 +14,8 @@ class Report < ActiveRecord::Base
 		end
 	end
 
+	def self.find_pending
+		Report.where(status: "0")
+	end
+
 end

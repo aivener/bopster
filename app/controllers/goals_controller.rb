@@ -11,6 +11,11 @@ class GoalsController < ApplicationController
 		@kid_names = current_user.kids.pluck(:name, :id)
 	end
 
+	def edit
+		@goal = Goal.find(params[:id])
+		@kid_names = current_user.kids.pluck(:name, :id)
+	end
+
 	def create
 		@goal = Goal.new(goal_params)
 		@goal.progress = 0
@@ -19,20 +24,17 @@ class GoalsController < ApplicationController
 		redirect_to :action => :index
 	end
 
+	def update
+		@goal = Goal.find(params[:id])
+		@goal.update!(goal_params)
+
+		redirect_to goals_path
+	end
+
 	private
 
 	def goal_params
 		params.require(:goal).permit(:title, :description, :target, :unit, :prize, :status, :kid_id)
 	end
-
-	# def set_kid_names
-	# 	@kid_names = {}
-	# 	User.all.each do |user|
-	# 		if user.parent_id == current_user.id
-	# 			@kid_names[user.name] = user.id
-	# 		end	
-	# 	end
-	# end
-
 
 end

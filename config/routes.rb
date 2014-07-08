@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root "goals#index"
 
-  resources :goals, :only => [:index, :new, :create]
+  resources :goals, :only => [:index, :new, :create, :update, :edit]
 
   resources :reports, :only => [:index, :new, :create, :show, :update]
 
@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   resources :friendships, :only => [:create, :index, :show]
 
-
+  get '/notifications' => 'notifications#index'
+  
   get '/users/:id/add_kid' => 'users#add_kid'
 
   get '/friendships/:friendship_id/accept_friend' => 'friendships#accept_friend'

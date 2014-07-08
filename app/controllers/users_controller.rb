@@ -15,6 +15,8 @@
 
     def update
     	@user = User.find(params[:id])
+        @user.update!(user_params)
+        @user.save
         redirect_to users_path
     end
 

@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
 		@friendship.requester_id = current_user.id
 		@friendship.receiver_id = User.find(params[:receiver_id]).id
 		@friendship.status = "Pending"
-		@friendship.save
+ 		@friendship.save
 		redirect_to :action => :index
 	end
 
