@@ -1,4 +1,8 @@
 class Friendship < ActiveRecord::Base
 	belongs_to :user
-	#belongs_to :requested_friends
+	
+	def self.find_pending
+		Friendship.where(status: "Pending")
+	end
+
 end
