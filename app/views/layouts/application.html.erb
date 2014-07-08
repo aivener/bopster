@@ -5,11 +5,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     
-
     <%= csrf_meta_tags %>
   </head>
   <body>
-
     <nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
@@ -24,52 +22,42 @@
           <li><%= link_to 'friends', "/friendships" %></li>
           <li><a href="#">notifications<span class="navbar-new">2</span></a></li>
         </ul>
-
         <div class = "navbar-right">
           <% if user_signed_in? %>
-            <button class="btn btn-default navbar-btn btn-xs" type="button">
-              <%=link_to 'sign out', destroy_user_session_path, :method => :delete, class: "navbar-link"%>
-            </button>
+          <button class="btn btn-default navbar-btn btn-xs" type="button">
+          <%=link_to 'sign out', destroy_user_session_path, :method => :delete, class: "navbar-link"%>
+          </button>
           <% else %>
-            <button class="btn btn-default navbar-btn btn-xs" type="button">
-              <%=link_to 'Sign In', new_user_session_path, class: "navbar-link" %>
-            </button>
+          <button class="btn btn-default navbar-btn btn-xs" type="button">
+          <%=link_to 'Sign In', new_user_session_path, class: "navbar-link" %>
+          </button>
           <% end %>
         </div>
-
-
         <% if current_user %>
-          <p class="navbar-text navbar-right">Signed in as 
-            <%= link_to current_user.name, "/users/#{current_user.id}", class: "navbar-link" %>
-          </p>
+        <p class="navbar-text navbar-right">Signed in as
+        <%= link_to current_user.name, "/users/#{current_user.id}", class: "navbar-link" %>
+        </p>
         <% end %>
-
         
-
-
-
-      <div class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <div class="input-group"  >
-            <%= form_tag users_path, :method => 'GET' do  %>
+        <div class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+            <div class="input-group"  >
+              <%= form_tag users_path, :method => 'GET' do  %>
               <%= text_field_tag 'q', params[:q], class: "form-control", id: "navbarInput-01", type: "search", placeholder: "search" %>
               <span class="input-group-btn">
-                <button type="submit" class="btn"><span class='fui-search'></span></button>
+              <button type="submit" class="btn"><span class='fui-search'></span></button>
               </span>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-
-     
-
-    
-      </div><!-- /.navbar-collapse -->
-    </nav><!-- /navbar -->
         
-    <br><br>
-          
-
+        
+        </div><!-- /.navbar-collapse -->
+        </nav><!-- /navbar -->
+        
+        <br><br>
+        
         <div class="container">
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
@@ -77,15 +65,13 @@
           <%= yield %>
           <br><br><br>
           
-
-          <div class="footer navbar-fixed-bottom navbar-inverse">
-            <div class="footer-text">
-              <p class="navbar-text"> &copy Sarah Schachman & Allie Ivener 2014 </p>
-            </div>
-            
-          </div>
+          
         </div>
-
-
+        <div class="footer navbar-inverse">
+          <div class="footer-text">
+            <p class="navbar-text"> &copy Sarah Schachman & Allie Ivener 2014 </p>
+          </div>
+          
+        </div>
       </body>
     </html>
