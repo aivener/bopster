@@ -17,7 +17,7 @@ gem 'devise'
 group :development do 
 
 	# gem 'jazz_hands'
-	# gem 'better_errors'
+	gem 'better_errors'
 	gem 'pry'
 	gem 'puma'
 	#gem 'quiet_assets'

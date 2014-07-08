@@ -1,4 +1,5 @@
     class UsersController < ApplicationController
+        before_action :authenticate_user!
 
 	def index
 		@users = User.filter(params[:q]).paginate(:per_page => 3, :page => params[:page])
