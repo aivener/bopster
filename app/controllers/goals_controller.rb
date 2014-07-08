@@ -36,6 +36,12 @@ class GoalsController < ApplicationController
 		@goal.delete
 	end
 
+	def received_prize
+		@goal = Goal.find(params[:goal_id])
+		@goal.update_attributes(prize_status: 1)
+		redirect_to '/notifications'
+	end
+
 	private
 
 	def goal_params

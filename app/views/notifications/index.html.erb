@@ -13,19 +13,29 @@
 <h2>Friend Requests</h2>
 
 <% @friend_request_notifications.each do |notification| %>
-	
+
+	<% if notification.receiver_id == current_user.id  %>
+		<%= "#{User.find(notification.requester_id).name} has sent you a friend request!" %>
+		<%= link_to "Accept", "/friendships/#{notification.id}/accept_friend"  %>
+	<% end %>
 <% end %>
 
 
 <h2>Prizes Won</h2>
 
 <% @prizes_notifications.each do |notification| %>
-	<% if User.find(notification.kid_id).parent_id == current_user.id %>
-		<%= "#{User.find(notification.kid_id).name} has completed #{notification.title}." %>
+	<% if current_user.role == "parent" %>
+		<% if notification.status == 0 %>
+			<% if User.find(notification.kid_id).parent_id == current_user.id %>
+				<%= "#{User.find(notification.kid_id).name} has completed #{notification.title}." %><br>
+			<% end %>
+		<% end %>
+	<% elsif current_user.role == "kid" %>
+		<% if User.find(notification.kid_id).id == current_user.id %>
+			<%= "You completed #{notification.title}!" %>
+			<%= link_to "Prize Received", "/notifications/#{notification.id}/received_prize" %><br>
+		<% end %>
 	<% end %>
 <% end %>
-
-<h2>New Goal</h2>
-
 
 

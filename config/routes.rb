@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get '/friendships/:friendship_id/accept_friend' => 'friendships#accept_friend'
 
+  get '/notifications/:goal_id/received_prize' => 'goals#received_prize'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
