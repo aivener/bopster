@@ -4,6 +4,7 @@
 		<%= link_to "Create a New Goal", "goals/new" , :class => "btn btn-primary btn-embossed"%>
 <% end %>
 <br>
+<br>
 
 <% collapse_count = 1 %>
 
@@ -13,8 +14,8 @@
 		<div class="panel-group" id="accordion">
 	  		<div class="panel panel-default">
 	    		<div class="panel-heading">
-	      			<h4 class="panel-title">
-				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+	      			<h4 class="panel-title">  
+				        <a data-toggle="collapse" data-parent="#accordion" href=<%= "#collapse#{collapse_count}" %>>
 				          	<span style="font-size: 25px; font-weight: bold;"><%= "#{goal.title}"%></span>	          		
 				          	<%= link_to "reports/new?report_goal_id=#{goal.id}" do %>
 								<button type="button" class="btn btn-primary btn-embossed btn-xs" id="btn-add"><span class="fui-plus"></span></button>
@@ -22,7 +23,7 @@
 				        </a>
 				     </h4>
 				</div>
-	    		<div id="collapseOne" class="panel-collapse collapse in">
+	    		<div id= <%= "collapse#{collapse_count}" %> class="panel-collapse collapse in">
 			      <div class="panel-body">
 			        <% if goal.status == 0 %>
 						<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
@@ -48,12 +49,12 @@
 				  <div class="panel panel-default">
 				    <div class="panel-heading">
 				      <h4 class="panel-title">
-				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">			        	
+				        <a data-toggle="collapse" data-parent="#accordion" href= <%= "#collapse#{collapse_count}" %> >			        	
 							<span style="font-size: 25px; font-weight: bold;"><%= "#{goal.title}" %></span><%= "- #{User.find(goal.kid_id).name}"%>					
 				        </a>
 				      </h4>
 				    </div>
-				    <div id="collapseOne" class="panel-collapse collapse in">
+				    <div id= <%= "collapse#{collapse_count}" %> class="panel-collapse collapse in">
 				      <div class="panel-body">
 				        <% if goal.status == 0 %>
 							<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
@@ -63,8 +64,8 @@
 							</div>
 							<%= "Description: #{goal.description}" %><br>
 							<b><%= "Prize is #{goal.prize}!" %></b><br>
-								<span class="miniwords"><%= link_to "#{User.find(goal.kid_id).name}'s profile", "/users/#{goal.kid_id}" %></span>
-								<%= link_to "Edit Goal", edit_goal_path(goal.id) %>
+							<span class="miniwords"><%= link_to "#{User.find(goal.kid_id).name}'s profile", "/users/#{goal.kid_id}" %></span><br>
+							<%= link_to "Edit Goal", edit_goal_path(goal.id), class: "btn btn-primary btn-embossed btn-xs" %>
 						<% else %>
 							<%= "Goal is complete!" %>
 						<% end %>
