@@ -35,6 +35,12 @@
 						<%= "Description: #{goal.description}" %><br>
 						<b><%= "Prize is #{goal.prize}!" %></b><br>
 						<!-- Submit new report modal here also -->
+
+						<button class="btn btn-primary btn-embossed" data-toggle="modal" data-target="#reportmodal">Make Report</button>
+						
+						
+
+
 						<%= link_to "Make Report", "reports/new?report_goal_id=#{goal.id}", class: "btn btn-primary btn-embossed" %>
 					<% else %>
 						<%= "Goal is complete!" %>

@@ -14,14 +14,6 @@
 		<div id="unit-field"><%= "  " + Goal.find(params[:report_goal_id]).unit %></div>
 	</div>
 	<%= f.hidden_field :goal_id, :value => params[:report_goal_id] %>
-	<%= f.submit "Report my Progress", class: "btn btn-primary btn-embossed" do%>
-		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					...
-				</div>
-			</div>
-		</div>
-	<% end %>
+	<%= f.submit "Report my Progress", class: "btn btn-primary btn-embossed" %>
 
 <% end %>
