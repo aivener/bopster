@@ -33,7 +33,7 @@
         font-size: 25px; 
     }
     .slide1 > p {
-        color: black;
+        color: #763B8F;
         margin-left: 40%;
         font-weight: 700;
         font-size: 25px; 
@@ -42,8 +42,12 @@
     .slide2 {
         position: relative;
         z-index: 2;  /* sets it above .slide1  */
-        margin-top: 100%; /* this pushes it below .slide1 in the scroll */
-        height: 100% /* full length slides */
+        margin-top: 55%; /* this pushes it below .slide1 in the scroll */
+        height: 95% /* full length slides */
+    }
+
+    .slide2 > img {
+        width: 100%;
     }
 
     .slide3 {
@@ -67,13 +71,13 @@
         <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary btn-hg btn-embossed", id: "signup" %><br><br>
 
     <p id="mission">A family-friendly, goal-based social platform that motivates kids to get out from behind the screen.</p>
-    <br><br><br>
+    <br><br>
 
     <p>scroll down</p>
 </div>
 
 <div class="slide2">
-    <%= image_tag('playingoutside.jpg') %>
+    <%= image_tag('baby.jpg') %>
 </div>
 
 <div class="slide3">
