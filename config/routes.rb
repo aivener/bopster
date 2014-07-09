@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   devise_for :users
 
-  root "goals#index"
+  root "pages#landing"
 
   resources :goals, :only => [:index, :new, :create, :update, :edit]
 

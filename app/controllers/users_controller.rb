@@ -19,7 +19,7 @@
         @user.update!(user_params)
         #@user.pick_avatar
         @user.save
-        redirect_to users_path
+        redirect_to user_path
     end
 
     def add_kid

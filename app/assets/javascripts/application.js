@@ -20,6 +20,7 @@
 //= require flatui-radio.js
 //= require flatui-checkbox.js
 //= require landing
+//= require bootstrap/modal
 
 $('select').selectpicker();
 

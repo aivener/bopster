@@ -4,6 +4,7 @@ class GoalsController < ApplicationController
 
 	def index
 		@goals = Goal.all
+		@report = Report.new
 	end
 
 	def new
@@ -28,7 +29,7 @@ class GoalsController < ApplicationController
 	def update
 		@goal = Goal.find(params[:id])
 		@goal.update!(goal_params)
-
+		@goal.save
 		redirect_to goals_path
 	end
 
