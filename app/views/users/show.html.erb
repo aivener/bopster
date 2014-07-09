@@ -29,12 +29,13 @@
 	<p>Email:  <%= link_to "#{@user.email}", "mailto:#{@user.email}" %></p><br>
 	
 	<br>
-					
 
 	<% if @user.id != current_user.id && @user.role == current_user.role %>
-		<%= link_to "Add as Friend", "/friendships?receiver_id=#{params[:id]}", :method => "post" %>
+		<% unless @user.receivers.include?(current_user) || current_user.receivers.include?(@user)%>
+			<%= link_to "Add as Friend", "/friendships?receiver_id=#{params[:id]}", :method => "post" %>
+		<% end %>
 	<% end %>
-
+ 
 
 	<% if (current_user.name == @user.name) %>
 		<%= link_to "Edit Profile", edit_user_path, :class => "btn btn-embossed btn-primary" %><br>

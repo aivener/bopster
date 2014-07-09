@@ -1,4 +1,6 @@
 class NotificationsController < ApplicationController 
+	before_action :authenticate_user!
+
 
 def index
     @report_notifications = Report.find_pending
