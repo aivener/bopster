@@ -20,7 +20,7 @@
           <li><%= link_to 'my home', users_path %></li>
           <li><%= link_to 'goals', goals_path %></li>
           <li><%= link_to 'friends', "/friendships" %></li>
-          <li><a href='notifications'>notifications<span class="navbar-new"><%= @length %></span></a></li>
+          <li><a href='/notifications'>notifications<span class="navbar-new"><%= @length %></span></a></li>
         </ul>
         <div class = "navbar-right">
           <% if user_signed_in? %>

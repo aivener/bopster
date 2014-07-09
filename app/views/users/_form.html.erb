@@ -19,9 +19,15 @@
     <%= f.text_field :age, type: "text", placeholder: "Age", class: "form-control"%>
 
 
-
     <%= f.text_field :bio, type: "text", placeholder: "Bio", class: "form-control"%>
   
+     <label class="radio">
+      <input id="user_avatar_1" type="radio" name="user[avatar]" value="http://www.clipartbest.com/cliparts/di8/XKg/di8XKgXie.png" data-toggle="radio" checked><%= image_tag("http://www.clipartbest.com/cliparts/di8/XKg/di8XKgXie.png") %>
+    </label>
+
+    <label class="radio">
+      <input id="user_avatar_2" type="radio" name="user[avatar]" value="http://www.clipartbest.com/cliparts/yck/689/yck689gcE.jpeg" data-toggle="radio"><%= image_tag("http://www.clipartbest.com/cliparts/yck/689/yck689gcE.jpeg") %>
+    </label>
 
 
   

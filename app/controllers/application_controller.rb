@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_filter :notification_counter
+
   
   protect_from_forgery with: :exception
 
@@ -28,10 +29,29 @@ class ApplicationController < ActionController::Base
   end
 
   def notification_counter
+    @length = 0
     @report_notifications = Report.find_pending
     @friend_request_notifications = Friendship.find_pending
     @prizes_notifications = Goal.find_completed
-    @length = @report_notifications.length + @friend_request_notifications.length + @prizes_notifications.length
+    if user_signed_in?
+      @report_notifications.each do |notif|
+        if User.find(Goal.find(notif.goal_id).kid_id).parent_id == current_user.id
+          @length += 1
+        end
+      end
+      @friend_request_notifications.each do |notif|
+        if (User.find(notif.receiver_id).id == current_user.id) || (User.find(notif.requester_id).id == current_user.id)
+          @length += 1
+        end
+      end
+      @prizes_notifications.each do |notif|
+        if (User.find(notif.kid_id).id == current_user.id) || (User.find(notif.kid_id).parent_id == current_user.id)
+          @length += 1
+        end
+      end
+    end
+    @length
+    #@length = @report_notifications.length + @friend_request_notifications.length + @prizes_notifications.length
   end
 
 end
