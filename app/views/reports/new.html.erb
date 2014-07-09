@@ -9,7 +9,7 @@
 	</div>
 <%end%>
 <%= form_for(@report, :url => '/reports') do |f| %>
-	<div id="parent">
+	<div id="report-fields">
 		<div id="amount-field"><%= f.text_field :amount, class: "form-control", placeholder: "Amount" %></div>
 		<div id="unit-field"><%= "  " + Goal.find(params[:report_goal_id]).unit %></div>
 	</div>
@@ -25,11 +25,3 @@
 	<% end %>
 
 <% end %>
-<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content">
-			...
-		</div>
-	</div>
-</div>

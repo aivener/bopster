@@ -16,7 +16,8 @@
 	    		<div class="panel-heading">
 	      			<h4 class="panel-title">  
 				        <a data-toggle="collapse" data-parent="#accordion" href=<%= "#collapse#{collapse_count}" %>>
-				          	<span style="font-size: 25px; font-weight: bold;"><%= "#{goal.title}"%></span>	          		
+				          	<span style="font-size: 25px; font-weight: bold;"><%= "#{goal.title}"%></span>
+				          	<!-- Submit new report modal goes here -->	          		
 				          	<%= link_to "reports/new?report_goal_id=#{goal.id}" do %>
 								<button type="button" class="btn btn-primary btn-embossed btn-xs" id="btn-add"><span class="fui-plus"></span></button>
 				          	<% end %>						
@@ -33,6 +34,7 @@
 						</div>
 						<%= "Description: #{goal.description}" %><br>
 						<b><%= "Prize is #{goal.prize}!" %></b><br>
+						<!-- Submit new report modal here also -->
 						<%= link_to "Make Report", "reports/new?report_goal_id=#{goal.id}", class: "btn btn-primary btn-embossed" %>
 					<% else %>
 						<%= "Goal is complete!" %>

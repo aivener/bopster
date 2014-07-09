@@ -7,4 +7,5 @@ class Goal < ActiveRecord::Base
 	def self.find_completed
 		Goal.where(prize_status: 0)
 	end
+
 end

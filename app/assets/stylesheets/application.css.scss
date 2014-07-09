@@ -1,6 +1,10 @@
 
 @import "bootstrap";
 @import "flat-ui";
+@import "landing";
+@import "goals";
+@import "reports";
+@import "users";
 
 .navbar-inverse .navbar-link {
   color: #fff;
@@ -13,14 +17,6 @@
 #navbarInput-01 {
 	border-radius: 7px;
 	margin: 0;
-}
-
-.footer {
-   width: 100%;
-   height: 53px;  
-   position: fixed; 
-   bottom: 0px; 
-   left: 0px;
 }
 
 .footer-text {
@@ -44,61 +40,26 @@
 	margin-bottom: 15px;
 }
 
-.avatar {
-	float:left;
-	margin-right: 30px;
-	border-radius: 10px;
-	
+* {
+	margin: 0;
 }
 
-.col-md-3 {
-	width: 140px;
+html, body {
+	height: 100%;
 }
 
-.login-form {
-	width: 400px;
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -53px;
 }
 
-.login-form .login-field {
-	width: 350px;
+.footer, .push {
+	height: 53px;
 }
 
-#unit-select {
-	width: 30px;
-}
 
-.miniwords {
-	font-size: medium;
-}
-
-#btn-add {
-	margin-top: 0;
-	margin-left: 15px;
-	margin-bottom: 10px;
-	height: 30px;
-}
-
-#parent {
-	white-space: nowrap;
-}
-
-#amount-field {
-	display: inline-block;
-}
-
-#unit-field {
-	display: inline-block;
-}
-
-.landing-logo {
-	margin-right: auto;
-	margin-left: auto;
-	width: 800px;
-}
-
-.landing-logo > img {
-	width: 800px;
-}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
