@@ -1,40 +1,53 @@
-<%= form_for(@user, url: user_path(@user), :method => :put) do |f| %>
-  
+<%= form_for(@user, url: user_path(@user), :method => :put, class: ".form-inline") do |f| %>
 
-
-  <div class="field">
-   
+<div class="row">
+  <div class=".col-xs-2">
+    
     <%= f.text_field :name, type: "text", placeholder: "Name", class: "form-control" %>
-
-
-
     <%= f.text_field :username, type: "text", placeholder: "Username", class: "form-control"%>
-  
- 
-
+    
+    
     <%= f.text_field :email, type: "text", placeholder: "Email", class: "form-control"%>
-	
-
-
+    
     <%= f.text_field :age, type: "text", placeholder: "Age", class: "form-control"%>
-
-
     <%= f.text_field :bio, type: "text", placeholder: "Bio", class: "form-control"%>
-  
-     <label class="radio">
-      <input id="user_avatar_1" type="radio" name="user[avatar]" value="http://www.clipartbest.com/cliparts/di8/XKg/di8XKgXie.png" data-toggle="radio" checked><%= image_tag("http://www.clipartbest.com/cliparts/di8/XKg/di8XKgXie.png") %>
-    </label>
-
-    <label class="radio">
-      <input id="user_avatar_2" type="radio" name="user[avatar]" value="http://www.clipartbest.com/cliparts/yck/689/yck689gcE.jpeg" data-toggle="radio"><%= image_tag("http://www.clipartbest.com/cliparts/yck/689/yck689gcE.jpeg") %>
-    </label>
-
-
-  
-
+    
+    <div class=".col-xs-6" >
+      <label class="radio">
+        <input id="user_avatar_1" type="radio" name="user[avatar]" value="http://www.clipartbest.com/cliparts/di8/XKg/di8XKgXie.png" data-toggle="radio" checked><%= image_tag("http://www.clipartbest.com/cliparts/di8/XKg/di8XKgXie.png", class: "avatar") %>
+      </label>
+      <br><br><br><br><br><br><br><br><br>
+      <label class="radio">
+        <input id="user_avatar_2" type="radio" name="user[avatar]" value="http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=6469575" data-toggle="radio"><%= image_tag("http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=6469575", class: "avatar") %>
+      </label>
+      <br><br><br><br><br><br><br><br><br>
+      <label class="radio">
+        <input id="user_avatar_2" type="radio" name="user[avatar]" value="http://us.cdn3.123rf.com/168nwm/red33/red330801/red33080100060/2383093-cute-dinosaurio-ilustracion-vectorial.jpg" data-toggle="radio"><%= image_tag("http://us.cdn3.123rf.com/168nwm/red33/red330801/red33080100060/2383093-cute-dinosaurio-ilustracion-vectorial.jpg", class: "avatar") %>
+      </label>
+      <br><br><br><br><br><br><br><br><br>
+      <label class="radio">
+        <input id="user_avatar_2" type="radio" name="user[avatar]" value="http://i160.photobucket.com/albums/t165/doomxkitty/dinoblue.png" data-toggle="radio"><%= image_tag("http://i160.photobucket.com/albums/t165/doomxkitty/dinoblue.png", class: "avatar") %>
+      </label>
+      <br><br><br><br><br><br><br><br><br>
+      <label class="radio">
+        <input id="user_avatar_2" type="radio" name="user[avatar]" value="http://us.cdn4.123rf.com/168nwm/red33/red331301/red33130100068/17223378-cute-baby-triceratops-dinosaur-illustration.jpg" data-toggle="radio"><%= image_tag("http://us.cdn4.123rf.com/168nwm/red33/red331301/red33130100068/17223378-cute-baby-triceratops-dinosaur-illustration.jpg", class: "avatar") %>
+      </label>
+      <br><br><br><br><br><br><br><br><br>
+      <label class="radio">
+        <input id="user_avatar_2" type="radio" name="user[avatar]" value="http://us.cdn1.123rf.com/168nwm/klauts/klauts1012/klauts101200002/8391895-a-a-a-za-a-a-a-a-a-a-a-a-a-a-a-a-a-a-za-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-.jpg" data-toggle="radio"><%= image_tag("http://us.cdn1.123rf.com/168nwm/klauts/klauts1012/klauts101200002/8391895-a-a-a-za-a-a-a-a-a-a-a-a-a-a-a-a-a-a-za-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-a-.jpg", class: "avatar") %>
+      </label>
+      <br><br><br><br><br><br><br><br><br>
+      <label class="radio">
+        <input id="user_avatar_2" type="radio" name="user[avatar]" value="http://www.clipartbest.com/cliparts/94c/bkX/94cbkXkTg.png" data-toggle="radio"><%= image_tag("http://www.clipartbest.com/cliparts/94c/bkX/94cbkXkTg.png", class: "avatar") %>
+      </label>
+      <br><br><br><br><br><br><br><br><br>
+      <label class="radio">
+        <input id="user_avatar_2" type="radio" name="user[avatar]" value="http://us.cdn4.123rf.com/168nwm/blamb/blamb1111/blamb111100019/11431458-a-cute-pink-cartoon-dinosaur.jpg"><%= image_tag("http://us.cdn4.123rf.com/168nwm/blamb/blamb1111/blamb111100019/11431458-a-cute-pink-cartoon-dinosaur.jpg", class: "avatar") %>
+      </label>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit :class => "btn btn-embossed btn-primary"%>
-  </div>
+</div>
+<div class="actions">
+  <%= f.submit :class => "btn btn-embossed btn-primary"%>
+</div>
 <% end %>

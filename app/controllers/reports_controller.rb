@@ -14,17 +14,18 @@ class ReportsController < ApplicationController
 		@report = Report.new(report_params)
 		@report.status = 0
 		@report.save
-		redirect_to reports_path(@report)
+		redirect_to goals_path
 	end
 
 	def show
+		@report = Report.find(params[:id])
 	end
 
 	def update
 		@report = Report.find(params[:id])
 		@report.status = 1
 		@report.save
-		redirect_to report_path
+		redirect_to goals_path
 	end
 
 	private

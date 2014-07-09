@@ -35,18 +35,24 @@ class ApplicationController < ActionController::Base
     @prizes_notifications = Goal.find_completed
     if user_signed_in?
       @report_notifications.each do |notif|
-        if User.find(Goal.find(notif.goal_id).kid_id).parent_id == current_user.id
-          @length += 1
+        if notif.goal_id
+          if User.find(Goal.find(notif.goal_id).kid_id).parent_id == current_user.id
+            @length += 1
+          end
         end
       end
       @friend_request_notifications.each do |notif|
-        if (User.find(notif.receiver_id).id == current_user.id) || (User.find(notif.requester_id).id == current_user.id)
-          @length += 1
+        if (notif.receiver_id || notif.requester_id)
+          if (User.find(notif.receiver_id).id == current_user.id) || (User.find(notif.requester_id).id == current_user.id)
+            @length += 1
+          end
         end
       end
       @prizes_notifications.each do |notif|
-        if (User.find(notif.kid_id).id == current_user.id) || (User.find(notif.kid_id).parent_id == current_user.id)
-          @length += 1
+        if notif.kid_id
+          if (User.find(notif.kid_id).id == current_user.id) || (User.find(notif.kid_id).parent_id == current_user.id)
+            @length += 1
+          end
         end
       end
     end
