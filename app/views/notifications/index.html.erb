@@ -24,11 +24,9 @@
 <h2>Prizes Won</h2>
 
 <% @prizes_notifications.each do |notification| %>
-	<% if current_user.role == "parent" %>
-		<% if notification.status == 0 %>
-			<% if User.find(notification.kid_id).parent_id == current_user.id %>
-				<%= "#{User.find(notification.kid_id).name} has completed #{notification.title}." %><br>
-			<% end %>
+	<% if current_user.role == "parent" && notification.status == 0%>
+		<% if User.find(notification.kid_id).parent_id == current_user.id %>
+			<%= "#{User.find(notification.kid_id).name} has completed #{notification.title}." %><br>
 		<% end %>
 	<% elsif current_user.role == "kid" %>
 		<% if User.find(notification.kid_id).id == current_user.id %>

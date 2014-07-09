@@ -7,16 +7,6 @@ class User < ActiveRecord::Base
   has_many :kids, class_name: "User", foreign_key: "parent_id"
   belongs_to :parent, class_name: "User"
 
-  # has_many :received_friendships, foreign_key: "receiver_id", :class_name => "Friendship" 
-  # #this is an array
-
-  # has_many :received_friends, :through => :received_friendships, :source => "User", :foreign_key => "receiver_id"
-
-  # has_many :requested_friendships, foreign_key: "requester_id", :class_name => "Friendship"
-  # #this is an array
-
-  # has_many :requested_friends, :through => :requested_friendships, :class_name => "User", :foreign_key => "requester_id"
-
   has_many :friendships, foreign_key: "requester_id"
   has_many :receivers, :through => :friendships
 
@@ -34,6 +24,7 @@ class User < ActiveRecord::Base
   def send_welcome_email
     UserMailer.welcome_email(self).deliver
   end
+
 
   def friendships
 

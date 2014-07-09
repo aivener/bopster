@@ -17,6 +17,7 @@
     def update
     	@user = User.find(params[:id])
         @user.update!(user_params)
+        #@user.pick_avatar
         @user.save
         redirect_to users_path
     end
@@ -27,9 +28,15 @@
         redirect_to "/users"
     end
 
+    def pick_avatar
+      @user = User.find(params[:id])
+      @user.update_attributes(avatar: "http://www.clipartbest.com/cliparts/di8/XKg/di8XKgXie.png")
+      @user.save
+    end
+
     private
 
         def user_params
-            params.require(:user).permit(:email, :name, :age, :gender, :parent_id, :bio, :username, :role)
+            params.require(:user).permit(:email, :name, :age, :gender, :parent_id, :bio, :username, :role, :avatar)
         end
 end

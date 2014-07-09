@@ -1,7 +1,7 @@
 <h1><%= @user.name %></h1>
 
-<img src="http://placekitten.com/200/200" class="avatar">
 
+<%= image_tag @user.avatar, class: "avatar" %>
 
 <% if current_user.role == "parent" && @user.role == "kid" %>
 	<% if @user.parent_id != current_user.id %>
