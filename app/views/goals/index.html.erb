@@ -23,7 +23,17 @@
 		<% total_submitted += report.amount unless report.amount == 0 %>
 	<% end %>
 	<% if total_submitted >= goal.target && goal.status == 0 && current_user.role == "kid" %>
-		<%= "Congrats! You have completed #{goal.title}! Just wait for your parent's approval!" %>
+
+
+		<div class = "prizenotice">
+			<%= image_tag 'trophy-dribbble.gif' %>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<%= "Congrats! You have completed #{goal.title}! Just wait for your parent's approval!" %><br>
+
+
+
+		</div>
+		<br>
 	<% end %>
 
 	<% if current_user.role == "kid" && goal.kid_id == current_user.id %>

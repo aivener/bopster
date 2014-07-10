@@ -28,3 +28,21 @@
 	left: 30px;
 	z-index: 10;
 }
+
+.prizenotice > img {
+	width: 200px;
+}
+
+.prizenotice  {
+	font-style: italic;
+	font-weight: bold;
+	color: #2C3E50;
+	font-size: 20px;
+	background: #d3fb7b;
+	border-radius: 10px;
+}
+
+.prizenotice > span {
+	margin: 0 auto;
+
+}
