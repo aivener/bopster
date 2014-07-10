@@ -1,4 +1,9 @@
-<h2>Goals</h2>
+<div class="goalstitle">
+	<h2>Goals</h2>
+	<div class="trophy">
+		<%= image_tag('flat-ribbon-badget2.png')%>
+	</div>
+</div>
 
 <% if current_user.role == "parent" %>
 <%= link_to "Create a New Goal", "goals/new" , :class => "btn btn-primary btn-embossed"%>
@@ -12,7 +17,7 @@
 <% @goals.each do |goal| %>
 	<% total_submitted = 0 %>
 	<% goal.reports.each do |report| %>
-		<% total_submitted += report.amount %>
+		<% total_submitted += report.amount unless report.amount == 0 %>
 	<% end %>
 	<% if total_submitted >= goal.target && goal.status == 0 %>
 		<%= "Congrats! You have completed #{goal.title}! Just wait for your parent's approval!" %>
@@ -49,7 +54,7 @@
 						
 					<% else %>
 							<%= "Goal is complete! Your parent approved your progress!" %>
-							<%= link_to "Prize Received", "/notifications/#{goal.id}/received_prize" %>
+							<%= link_to "Prize Received", "/notifications/#{goal.id}/received_prize", class: "btn btn-primary btn-embossed" %>
 					<% end %>
 				</div>
 			</div>
