@@ -14,6 +14,9 @@
 	<%= "Congrats! You have accomplished all of your goals! Check back later for more." %><br>
 <% end %>
 <% collapse_count = 1 %>
+<% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+<% end %>
 <% @goals.each do |goal| %>
 	<% total_submitted = 0 %>
 	<% goal.reports.each do |report| %>

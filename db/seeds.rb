@@ -20,6 +20,7 @@
 		gender: "male", 
 		parent_id: "nil", 
 		bio: "Instructor at iXperience, cat lover, ruby enthusiast, and youtube phenom.", 
+		username: "daretorant",
 		role: "parent", 
 		avatar: "http://us.cdn4.123rf.com/168nwm/red33/red331301/red33130100068/17223378-cute-baby-triceratops-dinosaur-illustration.jpg")
 
@@ -32,6 +33,7 @@
 		gender: "female", 
 		parent_id: salman.id, 
 		bio: "The favorite of the iX staff, and the perfect snuggle buddy.", 
+		username: "im_a_cat"
 		role: "kid", 
 		avatar: "http://www.clipartbest.com/cliparts/di8/XKg/di8XKgXie.png")
 
@@ -98,6 +100,7 @@
 		gender: "female", 
 		parent_id: "nil", 
 		bio: "Works part-time for an accounting business, otherwise loves taking care of her kids and gardening.", 
+		username: "trobertson"
 		role: "parent", 
 		avatar: "http://i160.photobucket.com/albums/t165/doomxkitty/dinoblue.png")
 
@@ -110,6 +113,7 @@
 		gender: "female", 
 		parent_id: terry.id, 
 		bio: "I love playing soccer and hangin with my friends. School sux.", 
+		username: "xo_sccrgurl_xo"
 		role: "kid", 
 		avatar: "http://us.cdn4.123rf.com/168nwm/blamb/blamb1111/blamb111100019/11431458-a-cute-pink-cartoon-dinosaur.jpg")
 
@@ -122,6 +126,7 @@
 		gender: "male", 
 		parent_id: terry.id, 
 		bio: "Biggest computer games champion out there. No one can compare to me.", 
+		username: "videogamemaster"
 		role: "kid", 
 		avatar: "http://us.cdn4.123rf.com/168nwm/red33/red331301/red33130100068/17223378-cute-baby-triceratops-dinosaur-illustration.jpg")
 
