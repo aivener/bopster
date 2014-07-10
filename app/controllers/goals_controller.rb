@@ -34,7 +34,10 @@ class GoalsController < ApplicationController
 	end
 
 	def destroy
-		@goal.delete
+		@goal = Goal.find(params[:id])
+		@goals = Goal.all
+		@goals.delete(@goal.id)
+		redirect_to goals_path
 	end
 
 	def received_prize
