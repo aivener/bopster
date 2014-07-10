@@ -1,5 +1,4 @@
 <h3>Search Results</h3>
-
 <% @users.each do |user| %>
 	<span style="font-size: 25px;"><b><%= link_to "#{user.name}", user_path(user.id) %></b></span><br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= "#{user.username}" %>: <em><%= "#{user.role}" %></em><br>

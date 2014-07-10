@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
       end
       @friend_request_notifications.each do |notif|
         if (notif.receiver_id || notif.requester_id)
-          if (User.find(notif.receiver_id).id == current_user.id) || (User.find(notif.requester_id).id == current_user.id)
+          if (User.find(notif.receiver_id).id == current_user.id)
             @length += 1
           end
         end

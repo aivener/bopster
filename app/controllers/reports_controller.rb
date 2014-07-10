@@ -14,6 +14,7 @@ class ReportsController < ApplicationController
 		@report = Report.new(report_params)
 		@report.status = 0
 		@report.save
+		flash[:notice] = "Progress successfully submitted!"
 		redirect_to goals_path
 	end
 

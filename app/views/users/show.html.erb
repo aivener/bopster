@@ -41,3 +41,40 @@
 		<%= link_to "Edit Profile", edit_user_path, :class => "btn btn-embossed btn-primary" %><br>
 	<% end %>
 </div>
+
+
+
+<% collapse_count = 1 %>
+<% @user.goals.each do |goal| %>
+	
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" href=<%= "#collapse#{collapse_count}" %>>
+					<span style="font-size: 25px; font-weight: bold;"><%= "#{goal.title}"%></span>
+				</a>
+				</h4>
+			</div>
+			<div id= <%= "collapse#{collapse_count}" %> class="panel-collapse collapse">
+				<div class="panel-body">
+					<% if goal.status == 0 %>
+						<% goal_percent = ((goal.progress.to_f/goal.target.to_f).to_f * 100).round(2) %>
+							<%= "Goal is #{goal_percent}% complete!"%> <em><%= "#{goal.progress} out of #{goal.target} #{goal.unit} done." %></em><br><br>
+							<div class="progress">
+								<div class="progress-bar" style="width: <%= goal_percent %>%;"></div>
+							</div>
+							<%= "Description: #{goal.description}" %><br>
+							<b><%= "Prize is #{goal.prize}!" %></b><br>
+					<% else %>
+							<%= "Goal is complete! Your parent approved your progress!" %>
+							<%= link_to "Prize Received", "/notifications/#{goal.id}/received_prize" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<% collapse_count += 1 %>
+	
+<% end %>
