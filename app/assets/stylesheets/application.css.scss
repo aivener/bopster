@@ -4,6 +4,8 @@
 @import "goals";
 @import "reports";
 @import "users";
+@import "landing";
+@import "notifications";
 
 .navbar-inverse .navbar-link {
   color: #fff;
@@ -57,6 +59,10 @@ html, body {
 .footer, .push {
 	height: 53px;
 	z-index: 1000;
+}
+
+.approve {
+	margin-top: 0;
 }
 
 

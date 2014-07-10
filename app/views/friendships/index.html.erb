@@ -1,16 +1,4 @@
-<br>
-<p><b>Pending Friend Requests</p></b>
-<% @friendships.each do |friendship| %>
-	<% if friendship.requester_id == current_user.id || friendship.receiver_id == current_user.id %>  
-		<% if friendship.status == "Pending" %>
-		  <%= "Friendship between #{User.find(friendship.receiver_id).name} and #{User.find(friendship.requester_id).name} is #{friendship.status}." %>
-			<% if friendship.receiver_id == current_user.id && friendship.status == "Pending" %>
-				<%= link_to "Accept Friend Request", "/friendships/#{friendship.id}/accept_friend", class: "btn btn-sm btn-primary btn-embossed" %>
-			<% end %>
-			<br>
-		<% end %>
-	<% end %>
-<% end %>
+
 
 <h3>My Friends</h3>
 <% @friendships.each do |friendship| %>
@@ -21,3 +9,19 @@
 	<% end %>
 <% end %>
 
+<br>
+
+<p><b>Pending Friend Requests</p></b>
+<% @friendships.each do |friendship| %>
+	<% if friendship.requester_id == current_user.id || friendship.receiver_id == current_user.id %>  
+		<% if friendship.status == "Pending" %>
+		  <em><%= "Your friendship with #{User.find(friendship.receiver_id).name} is #{friendship.status}!" %></em>
+			<% if friendship.receiver_id == current_user.id && friendship.status == "Pending" %>
+				<%= link_to "Accept Friend Request", "/friendships/#{friendship.id}/accept_friend", class: "btn btn-sm btn-primary btn-embossed" %>
+			<% end %>
+			<br>
+		<% end %>
+	<% end %>
+<% end %>
+
+<br><br><br>

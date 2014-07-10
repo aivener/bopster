@@ -1,44 +1,46 @@
 <h3>Notifications</h3>
 
+
 <% if current_user.role == "parent" %>
-	<p><b>Report Notifications</p></b>
+	<p><b><em>Report Notifications</em></p></b>
 
 	<% @report_notifications.each do |notification| %>
 		<% if notification.goal_id %>
 			<% if User.find(Goal.find(notification.goal_id).kid_id).parent_id == current_user.id %>
-				<%= notification.amount %> <%= Goal.find(notification.goal_id).unit %> toward <%= Goal.find(notification.goal_id).title %> -- 	<%= link_to "Approve", report_path(notification.id), method: "put" %><br>
+				<%= link_to "Approve", report_path(notification.id), method: "put", class: "btn btn-primary btn-embossed btn-xs approve" %> &nbsp;&nbsp;<%= notification.amount %> <%= Goal.find(notification.goal_id).unit %> toward <%= Goal.find(notification.goal_id).title %> <br><br>
 			<% end %>
 		<% end %>
 	<% end %>
 <% end %>
 
-<p><b>Friend Requests</p></b>
+<p><b><em>Friend Requests</em></p></b>
 
 <% @friend_request_notifications.each do |notification| %>
 	<% if notification.receiver_id %>
 		<% if notification.receiver_id == current_user.id  %>
-			<%= "#{User.find(notification.requester_id).name} has sent you a friend request!" %>
-			<%= link_to "Accept", "/friendships/#{notification.id}/accept_friend"  %>
+			<%= link_to "Accept", "/friendships/#{notification.id}/accept_friend", class: "btn btn-primary btn-embossed btn-xs approve"  %>&nbsp;&nbsp;<%= "#{User.find(notification.requester_id).name} has sent you a friend request!" %><br><br>
+			
 		<% end %>
 	<% end %>
 <% end %>
 
 
-<p><b>Prizes Won</p></b>
+<p><b><em>Prizes Won</em></p></b>
 
 <% @prizes_notifications.each do |notification| %>
 	<% if notification.kid_id %>
-		<% if current_user.role == "parent" && notification.status == 0%>
+		<% if current_user.role == "parent" && notification.prize_status == 0%>
 			<% if User.find(notification.kid_id).parent_id == current_user.id %>
-				<%= "#{User.find(notification.kid_id).name} has completed #{notification.title}." %><br>
+				<%= "#{User.find(notification.kid_id).name} has completed "%><em><%= "#{notification.title}."%></em><%=" The prize is " %> <b><%="#{Goal.find(notification.id).prize}!" %></b><br>
 			<% end %>
 		<% elsif current_user.role == "kid" %>
 			<% if User.find(notification.kid_id).id == current_user.id %>
-				<%= "You completed #{notification.title}!" %>
-				<%= link_to "Prize Received", "/notifications/#{notification.id}/received_prize" %><br>
+				<%= link_to "Prize Received", "/notifications/#{notification.id}/received_prize", class: "btn btn-primary btn-embossed btn-xs approve" %>&nbsp;&nbsp;<%= "You completed"%><em><%=" #{notification.title}!" %></em>
+				<br><br>
 			<% end %>
 		<% end %>
 	<% end %>
 <% end %>
 
+<br><br><br>
 

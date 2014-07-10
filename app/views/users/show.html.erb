@@ -28,11 +28,11 @@
 
 	<p>Email:  <%= link_to "#{@user.email}", "mailto:#{@user.email}" %></p><br>
 	
-	<br>
+	
 
 	<% if @user.id != current_user.id && @user.role == current_user.role %>
 		<% unless @user.receivers.include?(current_user) || current_user.receivers.include?(@user)%>
-			<%= link_to "Add as Friend", "/friendships?receiver_id=#{params[:id]}", :method => "post" %>
+			<%= link_to "Add as Friend", "/friendships?receiver_id=#{params[:id]}", :method => "post", :class => "btn btn-primary btn-embossed" %>
 		<% end %>
 	<% end %>
  
@@ -42,7 +42,7 @@
 	<% end %>
 </div>
 
-
+<br>
 
 <% collapse_count = 1 %>
 <% @user.goals.each do |goal| %>
@@ -78,3 +78,4 @@
 	<% collapse_count += 1 %>
 	
 <% end %>
+<br><br><br>
