@@ -1,7 +1,7 @@
-<h1>Notifications</h1>
+<h3>Notifications</h3>
 
 <% if current_user.role == "parent" %>
-	<h2>Report Notifications</h2>
+	<p><b>Report Notifications</p></b>
 
 	<% @report_notifications.each do |notification| %>
 		<% if notification.goal_id %>
@@ -12,7 +12,7 @@
 	<% end %>
 <% end %>
 
-<h2>Friend Requests</h2>
+<p><b>Friend Requests</p></b>
 
 <% @friend_request_notifications.each do |notification| %>
 	<% if notification.receiver_id %>
@@ -24,7 +24,7 @@
 <% end %>
 
 
-<h2>Prizes Won</h2>
+<p><b>Prizes Won</p></b>
 
 <% @prizes_notifications.each do |notification| %>
 	<% if notification.kid_id %>

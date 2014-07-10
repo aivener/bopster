@@ -3,6 +3,7 @@
 
 <%= image_tag @user.avatar, class: "avatar" %>
 
+
 <% if current_user.role == "parent" && @user.role == "kid" %>
 	<% if @user.parent_id != current_user.id %>
 		<%= link_to "Add Kid", "/users/#{params[:id]}/add_kid", class: "btn btn-primary btn-embossed" %> 
@@ -13,7 +14,7 @@
 	<% end %>
 <% end %>
 
-<div class="container">
+<div class="userinfo">
 
 	<p>Username:  <b><%= @user.username %></b></p>
 	
@@ -22,8 +23,7 @@
 		<p>Age: <b><%= @user.age %></b></p>
 	<% end %>
 
-	<p>Bio:</p>
-	<%= @user.bio %>
+	<p><em><%= @user.bio %></em></p>
 
 
 	<p>Email:  <%= link_to "#{@user.email}", "mailto:#{@user.email}" %></p><br>
