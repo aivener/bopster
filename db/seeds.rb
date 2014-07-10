@@ -126,7 +126,7 @@
 		gender: "male", 
 		parent_id: terry.id, 
 		bio: "Biggest computer games champion out there. No one can compare to me.", 
-		username: "videogamemaster",
+		username: "videogamemaster",		
 		role: "kid", 
 		avatar: "http://us.cdn4.123rf.com/168nwm/red33/red331301/red33130100068/17223378-cute-baby-triceratops-dinosaur-illustration.jpg")
 

@@ -11,7 +11,7 @@
 <br>
 
 <% if current_user.goals.length == 0 && current_user.role == "kid"%>
-	<%= "Congrats! You have accomplished all of your goals! Check back later for more." %><br>
+	<%= "You have no open goals! Check back later for more." %><br>
 <% end %>
 <% collapse_count = 1 %>
 <% if flash[:notice] %>
