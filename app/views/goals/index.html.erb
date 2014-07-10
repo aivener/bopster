@@ -88,7 +88,8 @@
 					<span class="miniwords"><%= link_to "#{User.find(goal.kid_id).name}'s profile", "/users/#{goal.kid_id}" %></span><br>
 					<%= link_to "Edit Goal", edit_goal_path(goal.id), class: "btn btn-primary btn-embossed btn-xs" %>
 					<% else %>
-					<%= "Goal is complete!" %>
+					<%= "Goal is complete!" %><br>
+					<%= "Prize is #{goal.prize}." %>
 					<% end %>
 				</div>
 			</div>

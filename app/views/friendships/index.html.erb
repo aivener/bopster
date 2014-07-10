@@ -3,9 +3,9 @@
 <h3>My Friends</h3>
 <% @friendships.each do |friendship| %>
 	<% if friendship.requester_id == current_user.id && friendship.status == "Accepted" %>
-		<%= link_to "#{User.find(friendship.receiver_id).name}", "/users/#{friendship.receiver_id}/" %><br>
+		<b><%= link_to "#{User.find(friendship.receiver_id).name}", "/users/#{friendship.receiver_id}/" %><b/><br>
 	<% elsif friendship.receiver_id == current_user.id && friendship.status == "Accepted" %>
-		<%= link_to "#{User.find(friendship.requester_id).name}", "/users/#{friendship.requester_id}/" %><br>
+		<b><%= link_to "#{User.find(friendship.requester_id).name}", "/users/#{friendship.requester_id}/" %></b><br>
 	<% end %>
 <% end %>
 
@@ -17,7 +17,8 @@
 		<% if friendship.status == "Pending" %>
 		  <em><%= "Your friendship with #{User.find(friendship.receiver_id).name} is #{friendship.status}!" %></em>
 			<% if friendship.receiver_id == current_user.id && friendship.status == "Pending" %>
-				<%= link_to "Accept Friend Request", "/friendships/#{friendship.id}/accept_friend", class: "btn btn-sm btn-primary btn-embossed" %>
+				<%= link_to "Accept Friend Request", "/friendships/#{friendship.id}/accept_friend", class: "btn btn-sm btn-primary btn-embossed approve" %>
+				<br>
 			<% end %>
 			<br>
 		<% end %>
