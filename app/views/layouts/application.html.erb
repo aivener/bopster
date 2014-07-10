@@ -46,10 +46,10 @@
             <div class="form-group">
               <div class="input-group"  >
                 <%= form_tag users_path, :method => 'GET' do  %>
-                <%= text_field_tag 'q', params[:q], class: "form-control", id: "navbarInput-01", type: "search", placeholder: "search" %>
-                <span class="input-group-btn">
-                <button type="submit" class="btn"><span class='fui-search'></span></button>
-                </span>
+                    <%= text_field_tag 'q', params[:q], class: "form-control", id: "navbarInput-01", type: "search", placeholder: "search" %>
+                    <span class="input-group-btn">
+                    <button type="submit" class="btn"><span class='fui-search'></span></button>
+                    </span>
                 <% end %>
               </div>
             </div>

@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :auth_user!
 	#before_create :authenticate_parent!
 
 	def index
@@ -40,6 +40,9 @@ class GoalsController < ApplicationController
 	def received_prize
 		@goal = Goal.find(params[:goal_id])
 		@goal.update_attributes(prize_status: 1)
+		@goals = Goal.all
+		@goal.destroy
+		@goals.delete(@goal.id)
 		redirect_to '/notifications'
 	end
 

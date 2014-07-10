@@ -7,17 +7,29 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery with: :exception
 
+  def stored_location_for(resource)
+    nil
+  end
+
+  def after_sign_in_path_for(resource)
+    goals_path
+  end
+
+  def auth_user!
+    redirect_to root_path unless user_signed_in?
+  end
+
   def authenticate_kid!
   	unless (user_signed_in? && current_user.role == "kid")
   		flash[:alert] = "Only kids can do that!"
-  		redirect_to :back
+  		redirect_to root_path
   	end
   end
 
   def authenticate_parent!
   	unless (user_signed_in? && current_user.role == "parent")
   		flash[:alert] = "Only parents can do that!"
-  		#redirect_to :back
+  		redirect_to root_path
   	end
   end
 
@@ -57,7 +69,6 @@ class ApplicationController < ActionController::Base
       end
     end
     @length
-    #@length = @report_notifications.length + @friend_request_notifications.length + @prizes_notifications.length
   end
 
 end
