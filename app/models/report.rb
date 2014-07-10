@@ -8,7 +8,7 @@ class Report < ActiveRecord::Base
 		self.goal.progress += self.amount 
 		self.goal.save
 		if self.goal.progress >= self.goal.target
-			self.goal.status = "Completed"
+			self.goal.status = 1
 			self.goal.prize_status = 0	
 			self.goal.save
 			#UserMailer.goal_completed_email(User.find(Goal.find(self.goal).parent_id)).deliver

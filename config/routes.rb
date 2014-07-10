@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root "pages#landing"
 
-  resources :goals, :only => [:index, :new, :create, :update, :edit]
+  resources :goals, :only => [:index, :new, :create, :update, :edit, :destroy]
 
   resources :reports, :only => [:index, :new, :create, :show, :update]
 
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get 'pages/landing'
 
   get '/notifications/:goal_id/received_prize' => 'goals#received_prize'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

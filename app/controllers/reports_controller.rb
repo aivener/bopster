@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :auth_user!
 	#before_action :authenticate_kid!
 
 	def index
@@ -25,7 +25,7 @@ class ReportsController < ApplicationController
 		@report = Report.find(params[:id])
 		@report.status = 1
 		@report.save
-		redirect_to goals_path
+		redirect_to "/notifications"
 	end
 
 	private

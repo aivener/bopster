@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :auth_user!
 
 	def index
 		@friendships = Friendship.all
