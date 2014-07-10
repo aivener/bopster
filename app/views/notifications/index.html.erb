@@ -6,7 +6,7 @@
 	<% @report_notifications.each do |notification| %>
 		<% if notification.goal_id %>
 			<% if User.find(Goal.find(notification.goal_id).kid_id).parent_id == current_user.id %>
-				<%= notification.amount %> <%= Goal.find(notification.goal_id).title %><%= link_to "Approve", report_path(notification.id), method: "put" %><br>
+				<%= notification.amount %> <%= Goal.find(notification.goal_id).unit %> toward <%= Goal.find(notification.goal_id).title %> -- 	<%= link_to "Approve", report_path(notification.id), method: "put" %><br>
 			<% end %>
 		<% end %>
 	<% end %>
