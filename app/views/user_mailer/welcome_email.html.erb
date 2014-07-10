@@ -1,27 +1,39 @@
 <% if @user.role == "kid" %>
 
 Hey <%= @user.name %>!
-<br><br>
-Welcome to Kazoo! We're so excited that you've joined us and can't wait for you to get started!
-<br><br>	
-Your parent also has a Kazoo account and will be setting up goals for you to complete. When you have made some progress, you can log onto your Kazoo account to submit an update. From the "goals" page, click the "+" next to the goal you've worked on. You can also click on the goal title and use the "Submit Progress" button. Clicking the goal title also allows you to see how close you are to completing the goal and your prize! Your progress won't be updated until your parent approves your progress submission, so don't worry if it takes a little while!
-<br><br>
-If your friends are using Kazoo too, you can search their name or email in the Search bar. Then, you can add them as your friend so you can see what types of goals they are working on and try to finish yours first!
-<br><br>
-Now that you have an account, head to your profile page by clicking your name in the top right corner. Use the "Edit Profile" button to add some information to your profile and pick a cool avatar!
-<br><br>
-Have fun, and remember that you have more than just a computer!
-<br><br>
-- The Kazoo Team
 
-<% end %>
+Welcome to Kazoo! We're so excited that you've joined us and can't wait for you to get started!
+
+Your parent also has a Kazoo account and will be setting up goals for you to complete. When you have made some progress, you can log onto your Kazoo account to submit an update. From the "goals" page, click the "+" next to the goal you've worked on. You can also click on the goal title and use the "Submit Progress" button. Clicking the goal title also allows you to see how close you are to completing the goal and your prize! Your progress won't be updated until your parent approves your progress submission, so don't worry if it takes a little while!
+
+If your friends are using Kazoo too, you can search their name or email in the Search bar. Then, you can add them as your friend so you can see what types of goals they are working on and try to finish yours first!
+
+Now that you have an account, head to your profile page by clicking your name in the top right corner. Use the "Edit Profile" button to add some information to your profile and pick a cool avatar!
+
+Have fun, and remember that you have more than just a computer!
+
+<%= image_tag "full_logo3.png" %>
+
+- The Kazoo Team
 
 <% else %>
 
 Hello <%= @user.name %>!
-<br><br>
+
 Welcome to Kazoo! We're excited that you have joined us and can't wait for you to get started!
-<br><br>
-Hopefully your kid(s) have also created a Kazoo account, but if not be sure they do so. You can search for them using their name or email to view their profile and add them as your child. Once you have done this, you can begin creating goals and approving their progress.
+
+Hopefully your kid(s) have also created a Kazoo account, but if not be sure they do so. You can search for them using their name or email to view their profile and add them as your child. Once you have done this, you can begin creating goals and approving their progress. To make your first goal, click the "Create Goal" button on the "goals" page. The progress waiting approval will be in your "notifications" page. Your kid's goal progress will not be updated until you approve it, so be sure to check in regularly!
+
+We've thought of some suggested goals to get you started.
+- Play outside for 5 hours. Prize is a trip to the ice cream shop.
+- Read your favorite book for 4 hours. Prize is a later bedtime for a night.
+- Make a painting for friends 3 times. Prize is going to the movie theater.
+- Finish all your homework 10 times. Prize is extra dessert after dinner.
+
+We hope that Kazoo will help motivate your kids to stay active and engaged and not spend all of their time behind the computer screen. Good luck!
+
+<%= image_tag "full_logo3.png" %>
+
+- The Kazoo Team
 
 <% end %>
