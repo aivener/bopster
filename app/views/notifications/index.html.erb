@@ -28,7 +28,8 @@
 
 <% @prizes_notifications.each do |notification| %>
 	<% if notification.kid_id %>
-		<% if current_user.role == "parent" && notification.status == 0%>
+		<% if current_user.role == "parent" && notification.prize_status == 0 %>
+
 			<% if User.find(notification.kid_id).parent_id == current_user.id %>
 				<%= "#{User.find(notification.kid_id).name} has completed #{notification.title}." %><br>
 			<% end %>

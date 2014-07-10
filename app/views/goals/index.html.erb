@@ -17,7 +17,7 @@
 	<% goal.reports.each do |report| %>
 		<% total_submitted += report.amount %>
 	<% end %>
-	<% if total_submitted >= goal.target && goal.status == 0 %>
+	<% if total_submitted >= goal.target && goal.status == 0 && current_user.role == "kid" %>
 		<%= "Congrats! You have completed #{goal.title}! Just wait for your parent's approval!" %>
 	<% end %>
 
