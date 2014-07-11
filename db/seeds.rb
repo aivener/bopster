@@ -152,17 +152,17 @@
 		status: 0, 
 		prize_status: -1)
 
-	read_books_report_1 = Report.create(
-		amount: 4.5, 
-		kid_id: katie.id, 
-		goal_id: read_books_goal.id, 
-		status: 0)
+	# read_books_report_1 = Report.create(
+	# 	amount: 4.5, 
+	# 	kid_id: katie.id, 
+	# 	goal_id: read_books_goal.id, 
+	# 	status: 0)
 
-	do_homework_report_1 = Report.create(
-		amount: 2.5, 
-		kid_id: katie.id, 
-		goal_id: do_homework_goal.id, 
-		status: 0)
+	# do_homework_report_1 = Report.create(
+	# 	amount: 2.5, 
+	# 	kid_id: katie.id, 
+	# 	goal_id: do_homework_goal.id, 
+	# 	status: 0)
 
 
 	go_outside_goal = Goal.create(
@@ -176,17 +176,17 @@
 		status: 0, 
 		prize_status: -1)
 
-	go_outside_report_1 = Report.create(
-		amount: 0.5, 
-		kid_id: bobby.id, 
-		goal_id: go_outside_goal.id, 
-		status: 0)
+	# go_outside_report_1 = Report.create(
+	# 	amount: 0.5, 
+	# 	kid_id: bobby.id, 
+	# 	goal_id: go_outside_goal.id, 
+	# 	status: 0)
 
-	kid_friendship_1 = Friendship.create(
-		requester_id: bobby.id,
-		receiver_id: katie.id,
-		status: "Pending",
-		)
+	# kid_friendship_1 = Friendship.create(
+	# 	requester_id: ruby.id,
+	# 	receiver_id: katie.id,
+	# 	status: "Pending",
+	# 	)
 
 
 
