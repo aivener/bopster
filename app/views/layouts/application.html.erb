@@ -66,15 +66,26 @@
             <p class="alert"><%= alert %></p> -->
             
             <%= yield %>
+
           </div>
           <div class="push"></div>
+
         </div>
+
+       
         <div class="footer navbar-inverse">
+        <% unless params[:controller] == "pages" %>
+          <div id="cornerdino">
+            <%= image_tag 'dino3.png' %>
+          </div> 
+        <% end %>         
+
+
           <div class="footer-text">
             <p class="navbar-text"> &copy Sarah Schachman & Allie Ivener 2014 </p>
           </div>
-          
         </div>
+       
         
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">

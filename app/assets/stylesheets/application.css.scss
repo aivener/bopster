@@ -59,10 +59,24 @@ html, body {
 .footer, .push {
 	height: 53px;
 	z-index: 1000;
+
 }
 
 .approve {
 	margin-top: 0;
+}
+
+#cornerdino > img {
+	width: 150px;
+	margin-right: 25px;
+	margin-bottom: 20px;
+}
+
+#cornerdino {
+	float: right;
+	position: relative;
+	bottom: 180px;
+	right: 0px;
 }
 
 
