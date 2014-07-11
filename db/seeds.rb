@@ -74,20 +74,20 @@
 		amount: 4, 
 		kid_id: ruby.id, 
 		goal_id: cat_friends_goal.id, 
-		status: 0)
+		status: 1)
 
 	cat_friends_report_2 = Report.create(
 		amount: 1, 
 		kid_id: ruby.id, 
 		goal_id: cat_friends_goal.id, 
-		status: 0)
+		status: 1)
 
 
 	sits_fits_report_1 = Report.create(
 		amount: 1, 
 		kid_id: ruby.id, 
 		goal_id: cat_friends_goal.id, 
-		status: 0)
+		status: 1)
 
 
 
@@ -147,7 +147,7 @@
 		kid_id: katie.id, 
 		target: 10, 
 		unit: "hours", 
-		progress: 7, 
+		progress: 0, 
 		prize: "Later bedtime on Friday!", 
 		status: 0, 
 		prize_status: -1)
@@ -156,13 +156,13 @@
 		amount: 4.5, 
 		kid_id: katie.id, 
 		goal_id: read_books_goal.id, 
-		status: 0)
+		status: 1)
 
-	do_homework_report_1 = Report.create(
-		amount: 2.5, 
-		kid_id: katie.id, 
-		goal_id: do_homework_goal.id, 
-		status: 0)
+	# do_homework_report_1 = Report.create(
+	# 	amount: 2.5, 
+	# 	kid_id: katie.id, 
+	# 	goal_id: do_homework_goal.id, 
+	# 	status: 1)
 
 
 	go_outside_goal = Goal.create(
@@ -180,13 +180,13 @@
 		amount: 0.5, 
 		kid_id: bobby.id, 
 		goal_id: go_outside_goal.id, 
-		status: 0)
+		status: 1)
 
-	kid_friendship_1 = Friendship.create(
-		requester_id: bobby.id,
-		receiver_id: katie.id,
-		status: "Pending",
-		)
+	# kid_friendship_1 = Friendship.create(
+	# 	requester_id: bobby.id,
+	# 	receiver_id: katie.id,
+	# 	status: "Pending",
+	# 	)
 
 
 

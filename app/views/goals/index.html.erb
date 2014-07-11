@@ -22,6 +22,7 @@
 	<% goal.reports.each do |report| %>
 		<% total_submitted += report.amount unless report.amount == 0 %>
 	<% end %>
+
 	<% if total_submitted >= goal.target && goal.status == 0 && current_user.role == "kid" %>
 
 
