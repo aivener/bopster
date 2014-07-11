@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   protected
 
   def send_welcome_email
-    UserMailer.welcome_email(self).deliver
+    #UserMailer.welcome_email(self).deliver
   end
 
 
