@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :friendships, foreign_key: "requester_id"
   has_many :receivers, :through => :friendships
 
-  after_create :send_welcome_email
+  #after_create :send_welcome_email
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   protected
 
   def send_welcome_email
-    UserMailer.welcome_email(self).deliver
+    #UserMailer.welcome_email(self).deliver
   end
 
 

@@ -164,7 +164,6 @@
 	# 	goal_id: do_homework_goal.id, 
 	# 	status: 1)
 
-
 	go_outside_goal = Goal.create(
 		title: "Play outside", 
 		description: "Play a sport, ride your bike, run, etc.", 
